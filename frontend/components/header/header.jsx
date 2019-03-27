@@ -21,7 +21,7 @@ class Header extends React.Component {
         return (
             <header>
                 <Link className="header-title" to="/">
-                    Mead
+                    Water
         </Link>
 
                 {/* search */}
