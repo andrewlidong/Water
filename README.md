@@ -1,24 +1,22 @@
-# README
+# Water
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Link to Live Site](https://waterapp.herokuapp.com/)
 
-Things you may want to cover:
+Water is a full-stack, single-page application built with React.js and Ruby on Rails.  Water mirrors the familiar story-sharing platform Medium.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Water supports the following features:
+  * Mobile-first
+  * Authentication/Authorization
+  * Stories
+  * Profiles
+  * Profile quick-look
+  * Follows and feed
+  * Comments
+  * Claps
+  * Tags
+  * Popular stories
+  * Recommended stories
+  * Bookmarks
+  * Search
+  * Useful Errors
+  * Loading screen
