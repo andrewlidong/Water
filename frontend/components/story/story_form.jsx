@@ -3,12 +3,8 @@ import React from 'react'
 class StoryForm extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            title: '',
-            subtitle: '',
-            body: '',
-            image_url: ''
-        }
+        this.state = this.props.story
+
         this.handleSubmit = this.handleSubmit.bind(this)
         this.update = this.update.bind(this)
     }
@@ -24,25 +20,11 @@ class StoryForm extends React.Component {
         this.props.submitAction(this.state)
     }
 
-    componentDidMount() {
-        if (this.props.title === 'edit') {
-            this.setState({
-                title: this.props.story.title,
-                subtitle: this.props.story.subtitle,
-                body: this.props.story.body,
-                image_url: this.props.story.image_url,
-            })
-        }
-    }
-
     render() {
-        const errors = this.props.errors.map(er => <li>{er}</li>)
-
+        // const errors = this.props.errors.map(er => <li>{er}</li>)
         return (
             <form className="story-form" onSubmit={this.handleSubmit}>
-                <ul>
-                    {errors}
-                </ul>
+
 
                 <label htmlFor="title">Title</label>
                 <input id="title"
@@ -68,8 +50,8 @@ class StoryForm extends React.Component {
                     onChange={this.update('image_url')}
                     value={this.state.image_url} />
 
-                <button className="modal-form-button">
-                    {this.props.title}
+                <button className="story-form-button">
+                    {this.props.type}
                 </button>
             </form>
         )
