@@ -2,7 +2,7 @@
 
 [Link to Live Site](https://waterapp.herokuapp.com/)
 
-Water is a full-stack, single-page application built with React.js and Ruby on Rails.  Water mirrors the familiar story-sharing platform Medium.
+Water is a full-stack, single-page application built with React.js and Ruby on Rails.  Water is inspired by the story-sharing platform Medium.
 
 Water supports the following features:
   * Mobile-first
