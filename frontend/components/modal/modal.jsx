@@ -1,43 +1,46 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { login, signup } from '../../actions/session_actions'
-import ModalForm from './modal_form'
+import ModalLoginForm from './modal_login_form'
+import ModalSignupForm from './modal_signup_form'
 
-class Modal extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
-        if (!this.props.reveal) {
-            return <div></div>
-        }
-        const revealText = this.props.reveal === 'login' ? 'Log In' : 'Sign Up'
-        const action = revealText === 'Log In' ? this.props.login : this.props.signup
+const Modal = ({ reveal, errors, login, signup, hide }) => {
+    if (reveal === 'login') {
         return (
             <div className="modal">
                 <div className="modal-content">
-                    <ModalForm title={revealText} submitAction={action} />
+                    <button
+                        onClick={hide}
+                        className="modal-close-button">
+                        x
+          </button>
+
+                    <ModalLoginForm
+                        title="Log In"
+                        errors={errors}
+                        submitAction={login}
+                        hide={hide} />
                 </div>
             </div>
         )
+    } else if (reveal) {
+        return (
+            <div className="modal">
+                <div className="modal-content">
+                    <button
+                        onClick={hide}
+                        className="modal-close-button">
+                        x
+          </button>
+
+                    <ModalSignupForm
+                        title="Sign Up"
+                        errors={errors}
+                        submitAction={signup}
+                        hide={hide} />
+                </div>
+            </div>
+        )
+    } else {
+        return <div></div>
     }
 }
-
-const mapStateToProps = state => {
-    return {
-        reveal: state.modal.reveal
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        login: user => dispatch(login(user)),
-        signup: user => dispatch(signup(user))
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Modal) 
+export default Modal

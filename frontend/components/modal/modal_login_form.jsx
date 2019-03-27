@@ -1,6 +1,6 @@
 import React from 'react'
 
-class ModalForm extends React.Component {
+class ModalLoginForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -23,10 +23,19 @@ class ModalForm extends React.Component {
     }
 
     render() {
+        const errors = this.props.errors.map(er => <li>{er}</li>)
         return (
             <form
                 className="modal-form"
                 onSubmit={this.handleSubmit}>
+
+                <h1 className="modal-form-header">Welcome Back</h1>
+                <p className="modal-form-subheader">Sign in to access your personalized homepage, follow authors and topics you love, and clap for stories that matter to you.</p>
+
+
+                <ul>
+                    {errors}
+                </ul>
 
                 <label htmlFor="email">Email</label>
                 <input id="email"
@@ -48,4 +57,4 @@ class ModalForm extends React.Component {
     }
 }
 
-export default ModalForm 
+export default ModalLoginForm
