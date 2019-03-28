@@ -9,3 +9,16 @@ export const commentsForStory = (state, arr) => {
 export const authorOfComment = (state, comment) => {
     return state.entities.users[comment.author_id]
 } 
+
+
+export const getPopularStories = (state) => {
+    return state.entities.popular.map(id => {
+        return state.entities.stories[id]
+    })
+} 
+
+export const authoredStoriesForUser = (state, user) => {
+    return user.authored_story_ids.map(id => {
+        return state.entities.stories[id]
+    })
+} 

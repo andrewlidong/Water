@@ -21,7 +21,7 @@ class Story < ApplicationRecord
       .joins(:claps)
       .group('stories.id')
       .order('SUM(claps.quantity) DESC')
-      .limit(5)
+      .limit(4)
   end
   
   def totalClaps

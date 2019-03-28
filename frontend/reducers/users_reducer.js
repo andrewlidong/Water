@@ -10,7 +10,7 @@ export default (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_USER:
     case RECEIVE_CURRENT_USER:
-      newState[action.user.id] = action.user
+      newState[action.payload.user.id] = action.payload.user
       return newState
 
     case RECEIVE_ALL_USERS:

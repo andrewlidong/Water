@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchAllStories } from '../actions/story_actions'
 import MainIndex from './main/main_index'
+import PopularIndex from './main/popular_index'
+import { getPopularStories } from '../reducers/selectors'
 
 class Homepage extends React.Component {
 
@@ -12,8 +14,9 @@ class Homepage extends React.Component {
   render () {
     return (
       <div className="homepage">
-        <MainIndex stories={this.props.stories} />
-        {/* <PopularIndex /> */}
+        <PopularIndex stories={this.props.popular} higherClass={"left-popular"} />
+        <MainIndex stories={this.props.stories} editButton={false} />
+        <PopularIndex stories={this.props.popular} higherClass={"right-popular"} />
       </div>
     )
   }
@@ -21,8 +24,10 @@ class Homepage extends React.Component {
 
 const mapStateToProps = state => {
   const stories = Object.values(state.entities.stories)
+  const popular = getPopularStories(state)
   return {
-    stories
+    stories,
+    popular
   }
 }
 
