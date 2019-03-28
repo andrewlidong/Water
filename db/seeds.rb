@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'rest-client'
+require 'faker'
+
 
 User.destroy_all
 Story.destroy_all
@@ -63,3 +66,12 @@ mike = User.new(
 )
 mike.avatar.attach(io: File.open('app/assets/images/mike.jpg'), filename: 'mike.jpg')
 mike.save 
+
+s1 = Story.new(
+  title: 'Trick Yourself Into Creating a Fresh Start',
+  subtitle: 'How to get the feeling of a clean slate without a major event or life change',
+  body: "#{Faker::Lorem.paragraph_by_chars(256) + '\r\n' + Faker::Lorem.paragraph_by_chars(256)}",
+  author_id: andrew.id
+)
+s1.image.attach(io: File.open('app/assets/images/baby.jpg'), filename: 'baby.jpg')
+s1.save 
