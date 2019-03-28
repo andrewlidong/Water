@@ -8,7 +8,7 @@
   width: 55px;
   height: 55px;
 
-  border: 1px solid #03a87c;
+  border: 1px solid $green;
   border-radius: 100%;
 
   background-color: none;
@@ -53,9 +53,9 @@
 }
 
 .story-clap {
-  margin: 0 10px 0 8px;
+  margin: 0 8px 0 8px;
 }
 
 .clap-total {
-  color: #03a87c;
+  color: $green;
 } 
