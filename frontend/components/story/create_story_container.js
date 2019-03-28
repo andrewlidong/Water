@@ -1,6 +1,8 @@
 import StoryForm from './story_form'
 import { connect } from 'react-redux'
 import { createStory } from '../../actions/story_actions'
+import { currentUser } from '../../reducers/selectors'
+
 
 const mapStateToProps = state => {
   const story = {
@@ -8,7 +10,8 @@ const mapStateToProps = state => {
   }
   return {
     story,
-    type: 'Create'
+    type: 'Create',
+    currentUser: currentUser(state)
   }
 }
 
