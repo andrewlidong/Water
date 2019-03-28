@@ -15,7 +15,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch --mode=development",
     "webpack-prod": "webpack --watch --mode=production",
-    "postinstall": "webpack --mode=development"
+    "postinstall": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
