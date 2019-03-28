@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchStory } from '../../actions/story_actions'
+import { followUser, unFollowUser } from '../../actions/follow_actions'
 import UserItem from './user_item'
 
 class Show extends React.Component {
@@ -21,7 +22,9 @@ class Show extends React.Component {
 
                 <UserItem
                     user={author}
-                    story={story} />
+                    story={story}
+                    followUser={this.props.followUser}
+                    unFollowUser={this.props.unFollowUser} />
 
                 <h1 className="story-title">
                     {story.title}
@@ -50,6 +53,7 @@ const mapStateToProps = (state, ownProps) => {
     if (story) {
         author = state.entities.users[story.author_id]
     }
+
     return {
         story,
         author
@@ -58,7 +62,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchStory: id => dispatch(fetchStory(id))
+        fetchStory: id => dispatch(fetchStory(id)),
+        followUser: id => dispatch(followUser(id)),
+        unFollowUser: id => dispatch(unFollowUser(id))
     }
 }
 
