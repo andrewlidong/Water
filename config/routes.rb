@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
 
     resources :stories
+    resources :followings, only: [:create, :destroy]
   end
 
 end
