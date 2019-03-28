@@ -12,7 +12,11 @@ body {
 
   
   @include min($desktop) {
-    width: 55%;
+    width: 80%;
+  }
+
+  @include min($bigscreen) {
+    width: 65%;
   }
 }
 

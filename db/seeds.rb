@@ -8,9 +8,6 @@
 require 'rest-client'
 require 'faker'
 
-
-fake_paragraph = Faker::Lorem.paragraph_by_chars(300)
-
 User.destroy_all
 Story.destroy_all
 Following.destroy_all
@@ -72,8 +69,25 @@ mike.save
 s1 = Story.new(
   title: 'Trick Yourself Into Creating a Fresh Start',
   subtitle: 'How to get the feeling of a clean slate without a major event or life change',
-  body: "#{fake_paragraph + '/r/n' + fake_paragraph + '/r/n' + fake_paragraph}",
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
   author_id: andrew.id
 )
 s1.image.attach(io: File.open('app/assets/images/baby.jpg'), filename: 'baby.jpg')
 s1.save 
+
+s2 = Story.new(
+  title: "What Do Social Media Breaks Accomplish?",
+  subtitle: 'It depends on who you are',
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: theo.id
+)
+s2.image.attach(io: File.open('app/assets/images/social-media.jpg'), filename: 'social-media.jpg')
+s2.save
+
+s3 = Story.new(
+  title: 'Meet the People Coding Our World', subtitle: 'An interview with Clive Thompson, author of the great new book ‘Coders’',
+  body: "#{Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300) + '/r/n' + Faker::Lorem.paragraph_by_chars(300)}",
+  author_id: amanda.id
+)
+s3.image.attach(io: File.open('app/assets/images/cliveThompson.jpg'), filename: 'cliveThompson.jpg')
+s3.save 
