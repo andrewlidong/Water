@@ -26,4 +26,4 @@ class Api::FollowingsController < ApplicationController
 
     render :show
   end
-end 
+end

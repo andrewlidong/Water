@@ -14,7 +14,6 @@ class Story < ApplicationRecord
 
   has_one_attached :image
 
-  
   def self.popular_stories
     self
       .all
@@ -23,16 +22,16 @@ class Story < ApplicationRecord
       .order('SUM(claps.quantity) DESC')
       .limit(4)
   end
-  
+
   def totalClaps
     self
       .claps
       .sum(:quantity)
   end
-
+  
   def time_estimate 
     word_count = self.body.split(' ').length
-    minutes = word_count / 300
+    minutes = word_count / 200
     if minutes < 1
       "< 1 min read"
     else

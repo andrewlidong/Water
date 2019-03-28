@@ -6,46 +6,49 @@ import ProfileContent from './profile_content'
 import MainIndex from '../main/main_index'
 
 class ProfileShow extends React.Component {
-    componentDidMount() {
-        this.props.fetchUser(this.props.match.params.id)
+  componentDidMount () {
+    this.props.fetchUser(this.props.match.params.id)
+  }
+
+  render () {
+    if (!this.props.user || !this.props.userStories) {
+      return <div></div>
     }
 
-    render() {
-        if (!this.props.user || !this.props.userStories) {
-            return <div></div>
-        }
-
-        return (
-            <div className="profile-show">
-                <ProfileContent user={this.props.user} />
-                <MainIndex stories={this.props.userStories} editButton={true} />
-            </div>
-        )
-    }
+    return (
+      <div className="profile-show">
+        <ProfileContent user={this.props.user} />
+        <MainIndex 
+          stories={this.props.userStories} 
+          editButton={true}
+          additionalClasses="profile-view" />
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const id = ownProps.match.params.id
-    const user = state.entities.users[id]
-    let userStories
+  const id = ownProps.match.params.id
+  const user = state.entities.users[id]
+  let userStories
 
-    if (user) {
-        userStories = authoredStoriesForUser(state, user)
-    }
+  if (user) {
+    userStories = authoredStoriesForUser(state, user)
+  }
 
-    return {
-        user,
-        userStories
-    }
+  return {
+    user,
+    userStories
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
-        fetchUser: id => dispatch(fetchUser(id))
-    }
+  return {
+    fetchUser: id => dispatch(fetchUser(id))
+  }
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ProfileShow) 
+  mapStateToProps,
+  mapDispatchToProps
+)(ProfileShow)

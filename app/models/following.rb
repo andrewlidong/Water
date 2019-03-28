@@ -3,7 +3,6 @@ class Following < ApplicationRecord
   validates :followed_id, :follower_id, presence: true
   validate :not_the_same
 
-
   belongs_to :followed,
     class_name: :User
 
@@ -15,5 +14,5 @@ class Following < ApplicationRecord
       self.errors[:User] << "cannot follow him/herself"
     end
   end
-  
-end 
+
+end

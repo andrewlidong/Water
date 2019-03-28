@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
       stories[story.id] = story
     })
 
-
     const preloadedState = {
       entities: {
         users: { [window.currentUser.user.id]: window.currentUser.user },
@@ -20,9 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       session: { id: window.currentUser.user.id }
     };
-    
+
     store = configureStore(preloadedState);
     delete window.currentUser;
+
   } else {
     store = configureStore();
   }

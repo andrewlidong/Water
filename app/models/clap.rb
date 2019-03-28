@@ -7,4 +7,4 @@ class Clap < ApplicationRecord
 
   belongs_to :clapable,
     polymorphic: true
-end 
+end

@@ -10,35 +10,27 @@ class ClapButton extends React.Component {
       clapable_id: this.props.content.id,
       quantity: 0
     }
-
     this.addInt = null
-    this.addToQuantity = this.addToQuantity.bind(this)
+    this.addToQuantity = this.addToQuantity.bind(this)  
     this.handleChange = this.handleChange.bind(this)  
   }
 
   addToQuantity() {
+
     clearTimeout(this.addInt)
-    this.setState({ quantity: this.state.quantity + 1 })
-
-
-    if (this.props.type === 'Comment') {
-      this.handleChange()
-    } else {
-      this.addInt = setTimeout(this.handleChange, 1200)
-    }
+    this.setState({ quantity: this.state.quantity + 1 }, () => {
+      if (this.props.type === 'Comment') {
+        this.handleChange()
+      } else {
+        this.addInt = setTimeout(this.handleChange, 1000)
+      }
+    })
   }
 
-  handleChange() {
+  handleChange () {
     this.props.createClap(this.state).then(
       success => this.setState({ quantity: 0 })
     )
-
-  }
-
-  componentWillUnmount() {
-    if (this.props.type === 'Story') {
-      this.handleChange()
-    }
   }
 
   render () {
@@ -60,7 +52,7 @@ class ClapButton extends React.Component {
           + {this.state.quantity}
         </p>
 
-        <button
+        <button 
           onClick={this.addToQuantity}
           className={"clap-button " + addClasses}>
           <img src={window.clap} />

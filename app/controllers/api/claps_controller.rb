@@ -33,4 +33,4 @@ class Api::ClapsController < ApplicationController
   def clap_params
     params.require(:clap).permit(:clapable_type, :clapable_id, :quantity)
   end
-end 
+end

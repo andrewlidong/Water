@@ -6,75 +6,71 @@ import UserItem from './user_item'
 import StoryComments from '../comments/story_comments'
 import ClapButton from '../clap/clap_button'
 
-
 class Show extends React.Component {
+  
+  componentDidMount () {
+    this.props.fetchStory(this.props.match.params.id)
+  }
 
-    componentDidMount() {
-        this.props.fetchStory(this.props.match.params.id)
+  render () {
+    const story = this.props.story
+    const author = this.props.author
+    if (!story || !author) {
+      return <div></div>
     }
 
-    render() {
-        const story = this.props.story
-        const author = this.props.author
-        if (!story || !author) {
-            return <div></div>
-        }
+    const bodyArray = story.body.split('/r/n').map((part, i) => {
+      return <p key={i} className="story-body">{part}</p>
+    })
+    return (
+      <div className="story">
 
-        const bodyArray = story.body.split('/r/n').map((part, i) => {
-            return <p key={i} className="story-body">{part}</p>
-        })
-        return (
-            <div className="story">
+        <UserItem 
+          user={author}
+          story={story} />
 
-                <UserItem
-                    user={author}
-                    story={story}
-                    followUser={this.props.followUser}
-                    unFollowUser={this.props.unFollowUser} />
+        <h1 className="story-title">
+          {story.title}
+        </h1>
 
-                <h1 className="story-title">
-                    {story.title}
-                </h1>
+        <h2 className="story-subtitle">
+          {story.subtitle}
+        </h2>
 
-                <h2 className="story-subtitle">
-                    {story.subtitle}
-                </h2>
+        <img className="story-image" src={story.image_url} />
 
-                <img className="story-image" src={story.image_url} />
+        {bodyArray}
 
-                {bodyArray}
+        <StoryComments 
+          story={this.props.story} />
 
-                <StoryComments
-                    story={this.props.story} />
-
-                <ClapButton content={story} type="Story" />
-            </div>
-        )
-    }
+        <ClapButton content={story} type="Story" />
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    let author, comments
-    const id = ownProps.match.params.id
-    const story = state.entities.stories[id]
-    if (story) {
-        author = state.entities.users[story.author_id]
-    }
-    return {
-        story,
-        author
-    }
+  let author, comments
+  const id = ownProps.match.params.id
+  const story = state.entities.stories[id]
+  if (story) {
+    author = state.entities.users[story.author_id]
+  }
+
+  return {
+    story,
+    author
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
-        fetchStory: id => dispatch(fetchStory(id)),
-        followUser: id => dispatch(followUser(id)),
-        unFollowUser: id => dispatch(unFollowUser(id))
-    }
+  return {
+    fetchStory: id => dispatch(fetchStory(id))
+  }
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Show)

@@ -6,30 +6,30 @@ import { commentsForStory } from '../../reducers/selectors'
 
 const StoryComments = ({ comments, story }) => {
 
-    return (
-        <div className="story-comments-container">
-            <CommentForm
-                story_id={story.id} />
+  return (
+    <div className="story-comments-container">
+      <CommentForm 
+        story_id={story.id} />
 
-            <CommentIndex
-                comments={comments} />
-        </div>
-    )
+      <CommentIndex 
+        comments={comments} />
+    </div>
+  )
 }
 
 const mapStateToProps = (state, ownProps) => {
-    let comments = []
-    const story = ownProps.story
-    const array = story.comments_array
-    if (array) {
-        comments = commentsForStory(state, array)
-    }
+  let comments = []
+  const story = ownProps.story
+  const array = story.comments_array
+  if (array) {
+    comments = commentsForStory(state, array)
+  }
 
-    return {
-        comments
-    }
+  return {
+    comments
+  }
 }
 
-export default connect(
-    mapStateToProps
-)(StoryComments) 
+export default connect (
+  mapStateToProps
+)(StoryComments)

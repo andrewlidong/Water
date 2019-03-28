@@ -6,10 +6,10 @@ class Comment < ApplicationRecord
 
   belongs_to :story
 
-
   has_many :claps,
     as: :clapable
 
+  
   def totalClaps
     self
       .claps

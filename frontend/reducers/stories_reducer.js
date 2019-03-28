@@ -16,7 +16,7 @@ export default (state = {}, action) => {
     case RECEIVE_STORY:
       newState[action.payload.story.id] = action.payload.story
       return newState
-
+    
     case RECEIVE_COMMENT:
       const newComments = action.payload.story.comments_array
       newState[action.payload.story.id].comments_array = newComments
@@ -35,7 +35,7 @@ export default (state = {}, action) => {
     case RECEIVE_CURRENT_USER:
       Object.values(action.payload.stories).forEach(story => {
         newState[story.id] = story
-      })
+      })      
       return newState
 
     default:

@@ -79,7 +79,7 @@ s1.save
 s2 = Story.new(
   title: "What Do Social Media Breaks Accomplish?",
   subtitle: 'It depends on who you are',
-  body: "#{Faker::Lorem.paragraph_by_chars(400) + '/r/n' + Faker::Lorem.paragraph_by_chars(500) + '/r/n' + Faker::Lorem.paragraph_by_chars(600) + '/r/n' + Faker::Lorem.paragraph_by_chars(600)}",
+  body: "#{Faker::Lorem.paragraph_by_chars(1000) + '/r/n' + Faker::Lorem.paragraph_by_chars(1000) + '/r/n' + Faker::Lorem.paragraph_by_chars(1000) + '/r/n' + Faker::Lorem.paragraph_by_chars(600)}",
   author_id: theo.id
 )
 s2.image.attach(io: File.open('app/assets/images/social-media.jpg'), filename: 'social-media.jpg')

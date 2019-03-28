@@ -7,4 +7,4 @@ json.comment do
   json.extract! @comment, :id, :body, :story_id, :author_id
   json.date @comment.date
   json.totalClaps @comment.totalClaps
-end 
+end

@@ -14,4 +14,4 @@ json.stories do
       json.totalClaps story.totalClaps
     end
   end
-end 
+end

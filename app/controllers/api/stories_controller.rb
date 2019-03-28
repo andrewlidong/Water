@@ -16,7 +16,6 @@ class Api::StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
 
-
     followed = current_user.followed_users.where(id: @story.author_id)
     @currentUserFollows = !followed.empty?
 
