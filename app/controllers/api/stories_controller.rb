@@ -2,8 +2,12 @@ class Api::StoriesController < ApplicationController
   before_action :ensure_logged_in, only: [:create, :update, :destroy]
 
   def index
+    # if current_user
+    #   @stories = Story.feed.includes(:author, :time_estimate, :date)
+    # else
     @stories = Story.all.includes(:author)
     render :index
+
   end
 
   def show
@@ -48,6 +52,6 @@ class Api::StoriesController < ApplicationController
   private
 
   def story_params
-    params.require(:story).permit(:title, :subtitle :body, :image_url)
+    params.require(:story).permit(:title, :subtitle, :body, :image)
   end
 end

@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 6, allow_nil: true}
   validates :bio, length: {maximum: 160}
 
-  validate :ensure_photo
+  validate :ensure_avatar
 
 
   # ASSOCIATIONS
@@ -57,7 +57,7 @@ class User < ApplicationRecord
 
   private
 
-  def ensure_photo
+  def ensure_avatar
     unless self.avatar.attached?
       errors[:avatar] << "must be attached"
     end

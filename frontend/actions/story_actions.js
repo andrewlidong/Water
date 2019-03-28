@@ -19,7 +19,7 @@ export const receiveStory = payload => {
 
 export const fetchAllStories = () => dispatch => {
     return ApiUtil.fetchAllStories().then(
-        payload => dispatch(receiveStories(payload))
+        payload => dispatch(receiveAllStories(payload))
     )
 }
 
