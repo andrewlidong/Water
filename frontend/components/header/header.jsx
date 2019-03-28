@@ -12,7 +12,7 @@ class Header extends React.Component {
     return (
       <header className="header">
         <NewButton addedClass="left" />
-        
+
         <Link className="header-title" to="/">
           Water
         </Link>

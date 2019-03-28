@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { createStory } from '../../actions/story_actions'
 import { currentUser } from '../../reducers/selectors'
 
-
 const mapStateToProps = state => {
   const story = {
     title: '', subtitle: '', body: ''

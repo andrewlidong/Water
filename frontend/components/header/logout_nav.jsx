@@ -4,7 +4,6 @@ import { logout } from '../../actions/session_actions'
 import { Link } from 'react-router-dom'
 import NewButton from './new_button'
 
-
 class LogoutNav extends React.Component {
   constructor (props) {
     super(props)

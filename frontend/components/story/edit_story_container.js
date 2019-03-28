@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { updateStory, fetchStory } from '../../actions/story_actions'
 import { currentUser } from '../../reducers/selectors'
 
-
 class EditStoryForm extends React.Component {
   componentDidMount () {
     const id = this.props.story.id

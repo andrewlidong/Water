@@ -6,15 +6,15 @@ import Homepage from './homepage'
 import Show from './story/show'
 
 const MainPage = () => {
-    return (
-        <div className="mainpage">
-            <Switch>
-                <ProtectedRoute path='/stories/new' component={CreateStoryContainer} />
-                <ProtectedRoute path='/stories/:id' component={Show} />
-                <Route path='/' component={Homepage} />
-            </Switch>
-        </div>
-    )
+  return (
+    <div className="mainpage">
+      <Switch>
+        <ProtectedRoute path='/stories/new' component={CreateStoryContainer} />
+        <ProtectedRoute path='/stories/:id' component={Show} />
+        <Route path='/' component={Homepage} />
+      </Switch>
+    </div>
+  )
 }
 
 export default MainPage
