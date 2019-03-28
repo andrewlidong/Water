@@ -16,11 +16,8 @@ class LogoutNav extends React.Component {
   render () {
     return (
       <nav className="header-nav">
-        <Link
-          className="header-button new-button"
-          to='/stories/new'>
-          New
-        </Link>
+
+        <NewButton addedClass="right" />
 
         <button
           className="header-button logout"

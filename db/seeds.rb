@@ -9,6 +9,8 @@ require 'rest-client'
 require 'faker'
 
 
+fake_paragraph = Faker::Lorem.paragraph_by_chars(300)
+
 User.destroy_all
 Story.destroy_all
 Following.destroy_all
@@ -70,7 +72,7 @@ mike.save
 s1 = Story.new(
   title: 'Trick Yourself Into Creating a Fresh Start',
   subtitle: 'How to get the feeling of a clean slate without a major event or life change',
-  body: "#{Faker::Lorem.paragraph_by_chars(256) + '\r\n' + Faker::Lorem.paragraph_by_chars(256)}",
+  body: "#{fake_paragraph + '/r/n' + fake_paragraph + '/r/n' + fake_paragraph}",
   author_id: andrew.id
 )
 s1.image.attach(io: File.open('app/assets/images/baby.jpg'), filename: 'baby.jpg')
