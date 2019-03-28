@@ -3,3 +3,13 @@
 @import "vars";
 
 @import "components/*";
+
+body {
+  padding: 10px 20px;
+
+  @include min($tablet) {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
