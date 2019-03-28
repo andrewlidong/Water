@@ -3,23 +3,23 @@ import { Link } from 'react-router-dom'
 import Nav from './nav'
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+  constructor(props) {
+    super(props)
+  }
 
-    render() {
-        return (
-            <header className="header">
-                <Link className="header-title" to="/">
-                    Water
+  render () {
+    return (
+      <header className="header">
+        <Link className="header-title" to="/">
+          Water
         </Link>
 
-                {/* search */}
+        {/* search */}
 
-                <Nav />
-            </header>
-        )
-    }
+        <Nav />
+      </header>
+    )
+  }
 }
 
 export default Header

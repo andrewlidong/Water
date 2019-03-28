@@ -3,15 +3,14 @@ import HeaderContainer from './header/header_container'
 import ModalContainer from './modal/modal_container'
 import MainPage from './mainpage'
 
-
 const App = () => {
-    return (
-        <div>
-            <HeaderContainer />
-            <MainPage />
-            <ModalContainer />
-        </div>
-    )
+  return (
+    <div>
+      <HeaderContainer />
+      <MainPage />
+      <ModalContainer />
+    </div>
+  )
 }
 
-export default App 
+export default App

@@ -5,41 +5,41 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER'
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS'
 
 export const receiveCurrentUser = user => {
-    return {
-        type: RECEIVE_CURRENT_USER,
-        user
-    }
+  return {
+    type: RECEIVE_CURRENT_USER,
+    user
+  }
 }
 
 export const logoutCurrentUser = () => {
-    return {
-        type: LOGOUT_CURRENT_USER
-    }
+  return {
+    type: LOGOUT_CURRENT_USER
+  }
 }
 
 export const receiveSessionErrors = errors => {
-    return {
-        type: RECEIVE_SESSION_ERRORS,
-        errors: errors.responseJSON
-    }
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors: errors.responseJSON
+  }
 }
 
 export const login = user => dispatch => {
-    return ApiUtil.login(user).then(
-        user => dispatch(receiveCurrentUser(user)),
-        err => dispatch(receiveSessionErrors(err))
-    )
+  return ApiUtil.login(user).then(
+    user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveSessionErrors(err))
+  )
 }
 
 export const logout = user => dispatch => {
-    return ApiUtil.logout().then(
-        (res) => dispatch(logoutCurrentUser())
-    )
+  return ApiUtil.logout().then(
+    (res) => dispatch(logoutCurrentUser())
+  )
 }
 
 export const signup = user => dispatch => {
-    return ApiUtil.signup(user).then(
-        user => dispatch(receiveCurrentUser(user)),
-        err => dispatch(receiveSessionErrors(err))
-    )
+  return ApiUtil.signup(user).then(
+    user => dispatch(receiveCurrentUser(user)),
+    err => dispatch(receiveSessionErrors(err))
+  )
 }

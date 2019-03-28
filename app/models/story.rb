@@ -9,6 +9,7 @@ class Story < ApplicationRecord
 
   has_one_attached :image
 
+  
   def time_estimate 
     word_count = self.body.split(' ').length
     minutes = word_count / 300
@@ -37,8 +38,5 @@ class Story < ApplicationRecord
     unless self.image.attached?
       errors[:image] << "must be attached"
     end
-
   end
-
 end
-

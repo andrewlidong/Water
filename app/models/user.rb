@@ -10,14 +10,13 @@ class User < ApplicationRecord
 
   validate :ensure_avatar
 
-
   # ASSOCIATIONS
   has_many :authored_stories,
     foreign_key: :author_id,
     class_name: :Story
 
   has_one_attached :avatar
-    
+
   # METHODS
 
   attr_reader :password

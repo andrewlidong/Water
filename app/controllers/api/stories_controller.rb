@@ -7,7 +7,6 @@ class Api::StoriesController < ApplicationController
     # else
     @stories = Story.all.includes(:author)
     render :index
-
   end
 
   def show

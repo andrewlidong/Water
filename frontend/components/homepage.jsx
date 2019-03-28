@@ -5,34 +5,34 @@ import MainIndex from './main/main_index'
 
 class Homepage extends React.Component {
 
-    componentDidMount() {
-        this.props.fetchAllStories()
-    }
+  componentDidMount () {
+    this.props.fetchAllStories()
+  }
 
-    render() {
-        return (
-            <div className="homepage">
-                <MainIndex stories={this.props.stories} />
-                {/* <PopularIndex /> */}
-            </div>
-        )
-    }
+  render () {
+    return (
+      <div className="homepage">
+        <MainIndex stories={this.props.stories} />
+        {/* <PopularIndex /> */}
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
-    const stories = Object.values(state.entities.stories)
-    return {
-        stories
-    }
+  const stories = Object.values(state.entities.stories)
+  return {
+    stories
+  }
 }
 
 const mapDispatchToProps = dispatch => {
-    return {
-        fetchAllStories: () => dispatch(fetchAllStories())
-    }
+  return {
+    fetchAllStories: () => dispatch(fetchAllStories())
+  }
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Homepage) 
+  mapStateToProps,
+  mapDispatchToProps
+)(Homepage)

@@ -4,10 +4,9 @@ import session from './session_reducer'
 import errors from './errors_reducer'
 import modal from './modal_reducer'
 
-
 export default combineReducers({
-    entities,
-    session,
-    errors,
-    modal
-}) 
+  entities,
+  session,
+  errors,
+  modal
+})

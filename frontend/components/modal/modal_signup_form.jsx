@@ -1,106 +1,106 @@
 import React from 'react'
 
 class ModalSignupForm extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            email: '',
-            password: '',
-            name: '',
-            bio: '',
-            avatar: null
-        }
-        this.update = this.update.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+  constructor(props) {
+    super(props)
+    this.state = {
+      email: '',
+      password: '',
+      name: '',
+      bio: '',
+      avatar: null
+    }
+    this.update = this.update.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  update (type) {
+    return e => {
+      this.setState({ [type]: e.target.value })
+    }
+  }
+
+  handleSubmit (e) {
+    e.preventDefault()
+    const formData = new FormData()
+    formData.append('user[email]', this.state.email)
+    formData.append('user[password]', this.state.password)
+    formData.append('user[name]', this.state.name)
+    formData.append('user[bio]', this.state.bio)
+    if (this.state.avatar) {
+      formData.append('user[avatar]', this.state.avatar)
     }
 
-    update(type) {
-        return e => {
-            this.setState({ [type]: e.target.value })
-        }
+    this.props.submitAction(formData)
+  }
+
+  handleFile (e) {
+    const file = e.currentTarget.files[0]
+    const fileReader = new FileReader()
+    fileReader.onloadend = () => {
+      this.setState({ avatar: file, avatarUrl: fileReader.result})
+    }
+    if (file) {
+      fileReader.readAsDataURL(file)
+    }
+  }
+
+  render () {
+    let preview
+    if (this.state.avatarUrl) {
+      preview = <img className="modal-preview" src={this.state.avatarUrl} />
+    } else {
+      preview = null
     }
 
-    handleSubmit(e) {
-        e.preventDefault()
-        const formData = new FormData()
-        formData.append('user[email]', this.state.email)
-        formData.append('user[password]', this.state.password)
-        formData.append('user[name]', this.state.name)
-        formData.append('user[bio]', this.state.bio)
-        if (this.state.avatar) {
-            formData.append('user[avatar]', this.state.avatar)
-        }
+    const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>)
 
-        this.props.submitAction(formData)
-    }
+    return (
+      <form
+        className="modal-form"
+        onSubmit={this.handleSubmit}>
 
-    handleFile(e) {
-        const file = e.currentTarget.files[0]
-        const fileReader = new FileReader()
-        fileReader.onloadend = () => {
-            this.setState({ avatar: file, avatarUrl: fileReader.result })
-        }
-        if (file) {
-            fileReader.readAsDataURL(file)
-        }
-    }
+        <ul className="modal-errors">
+          {errors}
+        </ul>
 
-    render() {
-        let preview
-        if (this.state.avatarUrl) {
-            preview = <img className="modal-preview" src={this.state.avatarUrl} />
-        } else {
-            preview = null
-        }
+        <label htmlFor="email">Email</label>
+        <input id="email"
+          type="text"
+          onChange={this.update('email')}
+          value={this.state.email} />
 
-        const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>)
+        <label htmlFor="password">Password</label>
+        <input id="password"
+          type="password"
+          onChange={this.update('password')}
+          value={this.state.password} />
 
-        return (
-            <form
-                className="modal-form"
-                onSubmit={this.handleSubmit}>
+        <label htmlFor="name">Name</label>
+        <input id="name"
+          type="text"
+          onChange={this.update('name')}
+          value={this.state.name} />
 
-                <ul className="modal-errors">
-                    {errors}
-                </ul>
+        <label htmlFor="bio">Bio</label>
+        <input id="bio"
+          type="text"
+          onChange={this.update('bio')}
+          value={this.state.bio} />
 
-                <label htmlFor="email">Email</label>
-                <input id="email"
-                    type="text"
-                    onChange={this.update('email')}
-                    value={this.state.email} />
+        <label htmlFor="avatar">Avatar</label>
+        <input id="avatar"
+          type="file"
+          onChange={this.handleFile.bind(this)} />
 
-                <label htmlFor="password">Password</label>
-                <input id="password"
-                    type="password"
-                    onChange={this.update('password')}
-                    value={this.state.password} />
+        {preview}
 
-                <label htmlFor="name">Name</label>
-                <input id="name"
-                    type="text"
-                    onChange={this.update('name')}
-                    value={this.state.name} />
-
-                <label htmlFor="bio">Bio</label>
-                <input id="bio"
-                    type="text"
-                    onChange={this.update('bio')}
-                    value={this.state.bio} />
-
-                <label htmlFor="avatar">Avatar</label>
-                <input id="avatar"
-                    type="file"
-                    onChange={this.handleFile.bind(this)} />
-
-                {preview}
-
-                <button className="modal-form-button">
-                    {this.props.title}
-                </button>
-            </form>
-        )
-    }
+        <button className="modal-form-button">
+          {this.props.title}
+        </button>
+      </form>
+    )
+  }
 }
 
 export default ModalSignupForm
