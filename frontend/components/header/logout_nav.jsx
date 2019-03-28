@@ -27,10 +27,10 @@ class LogoutNav extends React.Component {
                     onClick={this.handleLogout.bind(this)}>
                     Sign Out
                 </button>
-
+                
                 <img
                     className="header-image"
-                    src={this.props.currentUser.image_url} />
+                    src={this.props.currentUser.avatar} />
 
             </nav>
         )
