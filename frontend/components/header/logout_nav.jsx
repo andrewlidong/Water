@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { logout } from '../../actions/session_actions'
 import { Link } from 'react-router-dom'
 import NewButton from './new_button'
+import Search from '../search/search'
 
 class LogoutNav extends React.Component {
   constructor (props) {
@@ -19,6 +20,11 @@ class LogoutNav extends React.Component {
 
     return (
       <nav className="header-nav">
+        <Link to="/search">
+          <img
+            src={window.search}
+            className="search-icon" />
+        </Link>
 
         <NewButton addedClass="right" />
 

@@ -15,10 +15,7 @@ class Header extends React.Component {
 
         <Link className="header-title" to="/">
           Water
-        </Link>
-
-        {/* search */}
-
+        </Link>      
         <Nav />
       </header>
     )
