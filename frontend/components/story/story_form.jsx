@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 class StoryForm extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = this.props.story
 
@@ -10,13 +10,13 @@ class StoryForm extends React.Component {
     this.update = this.update.bind(this)
   }
 
-  update(name) {
+  update (name) {
     return e => {
       this.setState({ [name]: e.target.value })
     }
   }
 
-  handleSubmit(e) {
+  handleSubmit (e) {
     e.preventDefault()
     let redirectUrl = '/'
 
@@ -33,7 +33,7 @@ class StoryForm extends React.Component {
       formData.append('story[id]', this.state.id)
       redirectUrl = `/stories/${this.state.id}`
     }
-
+    
     this.props.submitAction(formData).then(
       success => this.props.history.push(redirectUrl),
       failure => console.log(failure)
@@ -51,7 +51,7 @@ class StoryForm extends React.Component {
     }
   }
 
-  render() {
+  render () {
     // const errors = this.props.errors.map(er => <li>{er}</li>)
     let preview
     if (this.state.imageUrl) {

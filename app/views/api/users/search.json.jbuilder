@@ -14,4 +14,4 @@ json.stories do
       json.image_url url_for(story.image)
     end
   end
-end 
+end

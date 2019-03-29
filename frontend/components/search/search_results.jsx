@@ -4,32 +4,32 @@ import StorySearchItem from './story_search_item'
 
 export default ({ query, stories, users }) => {
 
-    if (query === '') return <div></div>
+  if (query === '') return <div></div>
 
-    const reg = new RegExp(query.toLowerCase())
+  const reg = new RegExp(query.toLowerCase())
 
-    const userMatches = users.filter(user => {
-        return (user.name.toLowerCase().match(reg) || user.bio.toLowerCase().match(reg))
-    })
+  const userMatches = users.filter(user => {
+    return (user.name.toLowerCase().match(reg) || user.bio.toLowerCase().match(reg))
+  })
 
-    const storyMatches = stories.filter(story => {
-        return (story.title.toLowerCase().match(reg) || story.subtitle.toLowerCase().match(reg))
-    })
+  const storyMatches = stories.filter(story => {
+    return (story.title.toLowerCase().match(reg) || story.subtitle.toLowerCase().match(reg))
+  })
 
-    const userResults = userMatches.map((user, i) => <UserSearchItem key={i} user={user} />)
-    const storyResults = storyMatches.map((story, i) => <StorySearchItem key={i} story={story} />)
+  const userResults = userMatches.map((user, i) => <UserSearchItem key={i} user={user} />)
+  const storyResults = storyMatches.map((story, i) => <StorySearchItem key={i} story={story} />)
 
-    return (
-        <div className="search-results">
-            <div className="search-results-partition">
-                <h1 className="search-results-title">People</h1>
-                {userResults}
-            </div>
+  return (
+    <div className="search-results">
+      <div className="search-results-partition">
+        <h1 className="search-results-title">People</h1>
+        {userResults}
+      </div>
 
-            <div className="search-results-partition">
-                <h1 className="search-results-title">Stories</h1>
-                {storyResults}
-            </div>
-        </div>
-    )
+      <div className="search-results-partition">
+        <h1 className="search-results-title">Stories</h1>
+        {storyResults}
+      </div>
+    </div>
+  )
 }

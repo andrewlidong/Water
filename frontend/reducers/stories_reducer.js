@@ -16,7 +16,7 @@ export default (state = {}, action) => {
 
     case RECEIVE_ALL:
       return merge(newState, action.payload.stories)
-      
+
     case RECEIVE_STORY:
       newState[action.payload.story.id] = action.payload.story
       return newState

@@ -4,20 +4,22 @@ import { connect } from 'react-redux'
 import { fetchUser } from '../../actions/user_actions'
 import ProfileContent from './profile_content'
 import MainIndex from '../main/main_index'
+import LoadingComponent from '../loading_component'
 
 class ProfileShow extends React.Component {
-  constructor(props) {
+
+  constructor (props) {
     super(props)
     this.state = { loading: true }
   }
-  
+
   componentDidMount () {
     this.props.fetchUser(this.props.match.params.id).then(
       success => this.setState({ loading: false })
     )
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id) {
 
       this.setState({ loading: true })
@@ -30,20 +32,19 @@ class ProfileShow extends React.Component {
 
   render () {
     if (this.state.loading) {
-      return <div></div>
+      return <LoadingComponent />
     }
-
 
     let currentMatch
 
     if (this.props.currentUserId === this.props.user.id) {
       currentMatch = true
     }
-
+    
     return (
       <div className="profile-show">
-        <ProfileContent
-          user={this.props.user}
+        <ProfileContent 
+          user={this.props.user} 
           currentMatch={currentMatch} />
         <MainIndex 
           stories={this.props.userStories} 
@@ -57,11 +58,7 @@ class ProfileShow extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id
   const user = state.entities.users[id]
-  let userStories
-
-  if (user) {
-    userStories = authoredStoriesForUser(state, user)
-  }
+  const userStories = authoredStoriesForUser(state, user)
 
   return {
     user,

@@ -5,8 +5,11 @@ import { followUser, unFollowUser } from '../../actions/follow_actions'
 import UserItem from './user_item'
 import StoryComments from '../comments/story_comments'
 import ClapButton from '../clap/clap_button'
+import { authorOfStory } from '../../reducers/selectors'
+import LoadingComponent from '../loading_component'
 
 class Show extends React.Component {
+
   constructor (props) {
     super(props)
     this.state = { loading: true }
@@ -20,7 +23,7 @@ class Show extends React.Component {
 
   render () {
     if (this.state.loading) {
-      return <div></div>
+      return <LoadingComponent />
     }
 
     const story = this.props.story
@@ -29,6 +32,7 @@ class Show extends React.Component {
     const bodyArray = story.body.split('/r/n').map((part, i) => {
       return <p key={i} className="story-body">{part}</p>
     })
+
     return (
       <div className="story">
 
@@ -58,12 +62,9 @@ class Show extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let author, comments
   const id = ownProps.match.params.id
   const story = state.entities.stories[id]
-  if (story) {
-    author = state.entities.users[story.author_id]
-  }
+  const author = authorOfStory(state, story)
 
   return {
     story,

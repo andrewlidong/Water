@@ -21,7 +21,7 @@ class LogoutNav extends React.Component {
     return (
       <nav className="header-nav">
         <Link to="/search">
-          <img
+          <img 
             src={window.search}
             className="search-icon" />
         </Link>

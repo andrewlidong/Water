@@ -7,12 +7,12 @@ class Api::StoriesController < ApplicationController
         .followed_users_stories
         .includes(:author)
         .with_attached_image
-
-        @stories = feed.shuffle
-      @popular = Story.popular_stories
+      
+      @popular = Story.popular_stories.with_attached_image
+      @stories = feed.shuffle
     else
       @stories = Story.all.includes(:author).with_attached_image
-      @popular = Story.popular_stories.with_attached_image.with_attached_image
+      @popular = Story.popular_stories.with_attached_image
     end
     render :index
   end
