@@ -33,9 +33,18 @@ class ProfileShow extends React.Component {
       return <div></div>
     }
 
+
+    let currentMatch
+
+    if (this.props.currentUserId === this.props.user.id) {
+      currentMatch = true
+    }
+
     return (
       <div className="profile-show">
-        <ProfileContent user={this.props.user} />
+        <ProfileContent
+          user={this.props.user}
+          currentMatch={currentMatch} />
         <MainIndex 
           stories={this.props.userStories} 
           editButton={true}
@@ -56,7 +65,8 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     user,
-    userStories
+    userStories,
+    currentUserId: state.session.id
   }
 }
 
