@@ -13,6 +13,17 @@ User.destroy_all
 Story.destroy_all
 Following.destroy_all
 
+guest = User.new(
+  name: 'Guest User',
+  bio: 'Oh please, why dont you come in from the cold?',
+  email: 'guest@gmail.com',
+  password: 'testing'
+)
+file = EzDownload.open('https://uploads.scratch.mit.edu/users/avatars/395/5762.png')
+guest.avatar.attach(io: file, filename: 'guest.jpg')
+guest.save
+
+
 andrew = User.new(
   name: 'Andrew Dong',
   bio: 'Software Engineer, lover of sports',
