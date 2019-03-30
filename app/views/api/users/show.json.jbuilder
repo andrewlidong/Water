@@ -5,6 +5,8 @@ json.user do
   json.numFollowedUsers @user.num_followed_users
   json.numFollowers @user.num_followers
   json.currentUserFollows @currentUserFollows
+  json.recentStoryIds @user.recent_stories
+  json.feedIds @user.feed_ids
 end
 
 if @user.authored_stories.empty?

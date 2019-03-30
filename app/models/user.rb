@@ -43,6 +43,22 @@ class User < ApplicationRecord
 
   # METHODS
 
+  def feed_ids 
+    self
+      .followed_users_stories
+      .pluck(:id)
+      .shuffle
+  end
+
+
+  def recent_stories
+    self
+      .authored_stories
+      .order('stories.created_at DESC')
+      .limit(3)
+      .pluck(:id)
+  end
+
   def user_since
     months = [
       'Jan', 'Feb', 'Mar',

@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchAllStories } from '../actions/story_actions'
-import MainIndex from './main/main_index'
+import MainIndexBuffer from './main/main_index_buffer'
 import PopularIndex from './main/popular_index'
-import { getPopularStories, getRecentStories } from '../reducers/selectors'
+import { getPopularStories, getRecentStories, getFeedStories, getCurrentUser } from '../reducers/selectors'
 import LoadingComponent from './loading_component'
 
 class Homepage extends React.Component {
@@ -12,39 +12,45 @@ class Homepage extends React.Component {
     this.state = { loading: true }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchAllStories().then(
       success => this.setState({ loading: false })
     )
   }
 
-  render () {
+  render() {
     if (this.state.loading) {
       return <LoadingComponent />
     }
+
     return (
       <div className="homepage">
-        <PopularIndex 
-          stories={this.props.popular} 
+        <PopularIndex
+          stories={this.props.popular}
           higherClass={"left-popular"} />
-        <MainIndex 
-          stories={this.props.stories} 
-          editButton={false}
-          additionalClasses="" />
-        <PopularIndex 
-          stories={this.props.popular} 
+        <MainIndexBuffer
+          currentUser={this.props.currentUser}
+          stories={this.props.stories}
+          feedStories={this.props.feedStories}
+          editButton={false} />
+        <PopularIndex
+          stories={this.props.popular}
           higherClass={"right-popular"} />
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {  
+const mapStateToProps = state => {
   const stories = getRecentStories(state)
   const popular = getPopularStories(state)
+  const currentUser = getCurrentUser(state)
+  const feedStories = getFeedStories(state, currentUser)
   return {
     stories,
-    popular
+    popular,
+    currentUser,
+    feedStories
   }
 }
 

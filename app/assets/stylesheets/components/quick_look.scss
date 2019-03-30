@@ -1,15 +1,129 @@
 .profile-quick-look {
   position: relative;
+  padding: 5px 0;
 }
 
 .quick-look {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 150px;
-  height: 400px;
+  top: 10px;
+  left: 10px;
 
-  background-color: black;
+  display: flex;
+  flex-direction: column;
 
-  z-index: 100;
-} 
+  width: 300px;
+
+  opacity: 0;
+  
+  transition: opacity 0.3s;
+  z-index: 10;
+}
+
+.show {
+  opacity: 1;
+}
+
+.quick-look-content {
+  width: 100%;
+
+
+  padding: 20px;
+
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.quick-look-arrow {
+  width: 20px;
+  height: 20px;
+
+  margin-bottom: -11px;
+  margin-left: 20px;
+  margin-top: 30px;
+
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  
+  background-color: white;
+  
+  transform: rotate(-45deg);
+}
+
+.quick-look-top {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.quick-look-name {
+  font-size: 18px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.quick-look-userSince {
+  color: $green;
+  font-size: 14px;
+
+  margin: 6px 0;
+}
+
+.quick-look-bio {
+  font-size: 14px;
+  color: rgba(0,0,0,.54);
+}
+
+.quick-look-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 100%;
+}
+
+.quick-look-recent-stories {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  span {
+    color: rgba(0,0,0,.54); 
+  }
+
+  div {
+    display: flex;
+    margin-bottom: 10px;
+  }
+}
+
+.quick-look-recent {
+  font-size: 15px;
+  color: rgba(0,0,0,.54);
+
+  margin: 6px 0;
+}
+
+.quick-look-story {
+  font-size: 15px;
+  padding-left: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.quick-look-bottom {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 20px;
+}
