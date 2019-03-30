@@ -7,7 +7,6 @@ import ProfileQuickLook from '../profile/profile_quick_look'
 const PopularIndexItem = ({ story, author, num }) => {
 
   const storyUrl = `/stories/${story.id}`
-  const authorUrl = `/users/${author.id}`
 
   return (
     <div className="popular-index-item">

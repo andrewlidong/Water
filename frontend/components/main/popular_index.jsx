@@ -27,9 +27,9 @@ class PopularIndex extends React.Component {
     const elPos = this.popular.current.getBoundingClientRect().top
     const winPos = window.scrollY || window.pageYOffset
 
-    if (winPos > elPos + 240) {
+    if (winPos > elPos + 400) {
       this.setState({ classes: this.props.higherClass + ' fixed' })
-    } else if (winPos <= elPos + 240) {
+    } else if (winPos <= elPos + 400) {
       this.setState({ classes: this.props.higherClass })
     }
   }
@@ -44,7 +44,7 @@ class PopularIndex extends React.Component {
       <div ref={this.popular} className={"popular-index " + this.state.classes}>
         <h1 className="main-index-title">
           Popular on Water
-      </h1>
+        </h1>
 
         {mappedStories}
       </div>

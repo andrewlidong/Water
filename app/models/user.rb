@@ -59,22 +59,28 @@ class User < ApplicationRecord
     self
       .claps
       .where(clapable_type: 'Story')
-      .order('claps.quantity')
+      .order('claps.created_at DESC')
       .limit(3)
       .pluck(:clapable_id)
   end
 
   def recommended_story
-    self
+    tags = self
       .story_claps_ids
       .map { |id| Story.find(id).tags }
       .flatten
       .uniq
       .shuffle
-      .first
-      .stories
-      .shuffle
-      .first
+
+    if !tags.empty?
+      tags
+        .first
+        .story_ids
+        .shuffle
+        .first
+    else
+      nil
+    end
   end
 
   def recent_stories
