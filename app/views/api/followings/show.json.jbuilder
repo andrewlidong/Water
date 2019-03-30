@@ -6,6 +6,7 @@ json.user do
   json.numFollowers @user.num_followers
   json.currentUserFollows @currentUserFollows
   json.recentStoryIds @user.recent_stories
+  json.feedIds @user.feed_ids
 end
 
 json.stories do
@@ -17,7 +18,7 @@ json.stories do
       json.time_estimate story.time_estimate
       json.comments_array story.comments.map {|com| com.id}
       json.totalClaps story.totalClaps
-      json.tags story.tags
+      json.tags story.all_tags
     end
   end
 end

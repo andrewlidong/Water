@@ -43,6 +43,14 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Clap
     
+  has_many :bookmarks,
+    foreign_key: :user_id,
+    class_name: :Bookmark
+
+  has_many :bookmarked_stories,
+    through: :bookmarks,
+    source: :story
+    
   has_one_attached :avatar
 
   # METHODS
@@ -55,6 +63,10 @@ class User < ApplicationRecord
       .shuffle
   end
 
+  def bookmark_ids
+    self.bookmarked_stories.pluck(:id)
+  end
+  
   def story_claps_ids
     self
       .claps

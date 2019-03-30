@@ -47,8 +47,13 @@
   font-size: 16px;
 
   &.right {
-    display: inline;
-    margin-right: 10px;
+    height: 30px;
+    margin-right: 20px;
+
+    img {
+      width: 20px;
+      opacity: 0.5;
+    }
 
     @include min($tablet) {
       display: none;
@@ -75,3 +80,9 @@
   box-sizing: content-box;
   vertical-align: middle;
 }
+
+.header-bookmark-icon {
+  width: 15px;
+  opacity: 0.4;
+  margin-right: 20px;
+} 
