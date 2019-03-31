@@ -2,37 +2,29 @@ import React from 'react'
 
 class LoadingComponent extends React.Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      val: ''
-    }
-    this.chars = ['W', 'h', 'a', 't', '\'', 's',
-                  ' ', 'y', 'o', 'u', 'r',
-                  ' ', 's', 't', 'o', 'r', 'y', '?']
-    this.timestamp = Date.now()
+  state = { val: '' }
 
-    this.controller = this.controller.bind(this)
-    this.draw = this.draw.bind(this)
-    this.step = this.step.bind(this)
-    this.reset = this.reset.bind(this)
-  }
+  chars = ['W', 'h', 'a', 't', '\'', 's',
+    ' ', 'y', 'o', 'u', 'r',
+    ' ', 's', 't', 'o', 'r', 'y', '?']
 
-  componentWillUnmount () {
+  timestamp = Date.now()
+
+  componentWillUnmount() {
     clearTimeout(this.timeout)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.timeout = setTimeout(this.step, 400)
   }
 
-  step () {
+  step = () => {
     requestAnimationFrame(() => {
       this.controller(this.timestamp)
     })
   }
 
-  controller (timestamp) {
+  controller = timestamp => {
     const newTime = Date.now()
     if ((newTime - timestamp) > 100) {
       this.timestamp = newTime
@@ -42,7 +34,7 @@ class LoadingComponent extends React.Component {
     }
   }
 
-  draw () {
+  draw = () => {
     if (this.chars.length > 0) {
       const char = this.chars.shift()
       const val = this.state.val + char
@@ -50,12 +42,12 @@ class LoadingComponent extends React.Component {
       this.setState({ val }, () => {
         requestAnimationFrame(this.step)
       })
-    } else {      
+    } else {
       this.timeout = setTimeout(this.reset, 1000)
     }
   }
 
-  reset () {
+  reset = () => {
     this.chars = this.state.val.split('')
     this.setState({
       val: ''
@@ -64,7 +56,7 @@ class LoadingComponent extends React.Component {
     })
   }
 
-  render () {
+  render() {
     return (
       <div className="loading-component">
         <input

@@ -2,26 +2,19 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 
 class StoryForm extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = this.props.story
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.update = this.update.bind(this)
+  state = this.props.story
+
+  update = name => event => {
+    this.setState({ [name]: event.target.value })
   }
 
-  update (name) {
-    return e => {
-      this.setState({ [name]: e.target.value })
-    }
-  }
-
-  componentWillReceiveProps (newProps) {
+  componentWillReceiveProps(newProps) {
     this.setState(newProps.story)
   }
 
-  handleSubmit (e) {
-    e.preventDefault()
+  handleSubmit = event => {
+    event.preventDefault()
     let redirectUrl = '/'
 
     const formData = new FormData()
@@ -38,25 +31,29 @@ class StoryForm extends React.Component {
       formData.append('story[id]', this.state.id)
       redirectUrl = `/stories/${this.state.id}`
     }
-    
+
+    const copyState = this.state
+
     this.props.submitAction(formData).then(
       success => this.props.history.push(redirectUrl),
-      failure => console.log(failure)
+      failure => this.setState(copyState)
     )
   }
 
-  handleFile(e) {
-    const file = e.currentTarget.files[0]
+  handleFile = event => {
+    const file = event.currentTarget.files[0]
     const fileReader = new FileReader()
+
     fileReader.onloadend = () => {
       this.setState({ image: file, imageUrl: fileReader.result })
     }
+
     if (file) {
       fileReader.readAsDataURL(file)
     }
   }
 
-  render () {
+  render() {
     const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>)
 
     let preview
@@ -110,10 +107,9 @@ class StoryForm extends React.Component {
             type='text'
             onChange={this.update('tags')}
             value={this.state.tags}
-            placeholder="Comma seperated tags, such as 'sports, culture'" />
+            placeholder="Comma seperated tags, such as 'art, history'" />
 
           <p className="story-form-label">Select a cover image:</p>
-
           <input
             type="file"
             onChange={this.handleFile.bind(this)} />

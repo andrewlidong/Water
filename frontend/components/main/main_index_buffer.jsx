@@ -2,16 +2,20 @@ import React from 'react'
 import MainIndex from './main_index'
 import TagLinkContainer from '../tags/tag_link_container'
 
-const MainIndexBuffer = ({ 
-  currentUser, stories, feedStories, tags, editButton }) => {
+const MainIndexBuffer = ({
+  currentUser, stories, feedStories, tags, editButton
+}) => {
 
   let feedSection
 
   if (currentUser && feedStories.length >= 1) {
-    feedSection = <MainIndex 
-      title='Feed' 
-      stories={feedStories} 
-      additionalClasses='' />
+    feedSection = (
+      <MainIndex
+        title='Feed'
+        stories={feedStories}
+        additionalClasses=''
+      />
+    )
   }
 
   return (

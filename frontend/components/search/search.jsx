@@ -5,28 +5,24 @@ import SearchResults from './search_results'
 import LoadingComponent from '../loading_component'
 
 class Search extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = { 
-      loading: true,
-      query: ''
-    }
 
-    this.update = this.update.bind(this)
+  state = {
+    loading: true,
+    query: ''
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchAllUsersAndStories().then(
       this.setState({ loading: false })
     )
   }
 
-  update (e) {
-    this.setState({ query: e.target.value })
+  update = event => {
+    this.setState({ query: event.target.value })
   }
 
-  render () {
-    
+  render() {
+
     if (this.state.loading) {
       return <LoadingComponent />
     }
@@ -39,7 +35,7 @@ class Search extends React.Component {
           value={this.state.query}
           autoFocus />
 
-        <SearchResults 
+        <SearchResults
           query={this.state.query}
           stories={this.props.stories}
           users={this.props.users}
@@ -66,7 +62,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect (
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Search)

@@ -8,11 +8,8 @@ import LoadingComponent from '../loading_component'
 
 class ProfileShow extends React.Component {
 
-  constructor (props) {
-    super(props)
-    this.state = { loading: true }
-  }
-
+  state = { loading: true }
+  
   componentDidMount () {
     this.props.fetchUser(this.props.match.params.id).then(
       success => this.setState({ loading: false })
