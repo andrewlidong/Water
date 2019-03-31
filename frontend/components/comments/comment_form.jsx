@@ -17,6 +17,9 @@ class CommentForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    
+    if (this.state.body === '') return
+    
     this.props.createComment(this.state)
   }
 

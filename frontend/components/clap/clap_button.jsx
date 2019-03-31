@@ -12,6 +12,7 @@ class ClapButton extends React.Component {
   addToQuantity = () => {
 
     clearTimeout(this.addInt)
+    
     this.setState({ quantity: this.state.quantity + 1 }, () => {
       if (this.props.type === 'Comment') {
         this.handleChange()
@@ -27,6 +28,14 @@ class ClapButton extends React.Component {
     )
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.addInt)
+
+    if (this.state.quantity > 0) {
+      this.props.createClap(this.state)
+    }
+  }
+  
   render () {
     const totalClaps = this.props.content.totalClaps
 
