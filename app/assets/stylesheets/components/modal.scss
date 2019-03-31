@@ -24,9 +24,9 @@
 
   background-color: #D7EFEE;
 
-  @include min($tablet) {
-    width: 900px;
-    height: 600px;
+  @include min($desktop) {
+    width: 70%;
+    height: 60%;
 
     margin-top: 0;
 
@@ -35,6 +35,12 @@
     background-size: auto 290px;
     background-repeat: no-repeat;
   }
+
+  @include min($bigscreen) {
+    width: 50%;
+    height: 50%;
+  }
+
 }
 
 .modal-form {
@@ -121,6 +127,8 @@
 
 .modal-errors {
   margin: 0 auto 20px auto;
+  color: lightcoral;
+  font-size: 18px;
 }
 
 .modal-preview {
@@ -142,3 +150,11 @@
   font-size: 16px;
   cursor: pointer;
 }
+
+.modal-form-button-switch {
+  margin: 20px auto;
+
+  span {
+    margin-left: 5px;
+  }
+} 
