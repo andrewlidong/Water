@@ -4,6 +4,7 @@
   align-items: center;
 
   padding-bottom: 10px;
+  margin-top: 10px;
 }
 
 .header-title {
@@ -11,17 +12,13 @@
   font-weight: bold;
   font-family: $header;
 
-
   @include min($tablet) {
     margin-left: 40px;
   }
 }
 
-.header-button {
-  height: 33px;
-  
+.header-button {  
   font-size: 16px;
-  line-height: 33px;
   color: $green;
 
   cursor: pointer;
@@ -36,11 +33,20 @@
 .signup {
   border-color: $green;
   border-radius: 4px;
+  padding: 8px 10px;
 }
 
 .login, .logout {
   border: none;
   background-color: white;
+}
+
+.logout {
+  display: none;
+
+  @include min($tablet) {
+    display: block;
+  }
 }
 
 .new-button {
@@ -49,7 +55,7 @@
   &.right {
     height: 30px;
     margin-right: 20px;
-
+    
     img {
       width: 20px;
       opacity: 0.5;
@@ -67,10 +73,11 @@
       display: block;
     }
   }
-
 }
 
 .header-image {
+  vertical-align: middle;
+  
   width: 36px;
   height: 36px;
 
@@ -78,11 +85,11 @@
 
   border-radius: 100%;
   box-sizing: content-box;
-  vertical-align: middle;
 }
 
 .header-bookmark-icon {
   width: 15px;
-  opacity: 0.4;
   margin-right: 20px;
-} 
+
+  opacity: 0.4;
+}
