@@ -7,7 +7,6 @@ export default ({addedClass}) => {
   if (addedClass === 'right') {
     text = <img src={window.editImage} />
   }
-
   return (
     <Link
       className={classes}

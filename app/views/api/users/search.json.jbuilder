@@ -16,4 +16,4 @@ json.stories do
   end
 end
 
-json.tags @tags 
+json.tags @tags

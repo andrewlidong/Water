@@ -14,21 +14,21 @@ class Homepage extends React.Component {
     this.state = { loading: true }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.props.fetchAllStories().then(
       success => this.setState({ loading: false })
     )
   }
 
-  render() {
+  render () {
     if (this.state.loading) {
       return <LoadingComponent />
     }
 
     return (
       <div className="homepage">
-        <PopularIndex
-          stories={this.props.popular}
+        <PopularIndex 
+          stories={this.props.popular} 
           higherClass={"left-popular"} />
         <MainIndexBuffer
           currentUser={this.props.currentUser}
@@ -42,8 +42,8 @@ class Homepage extends React.Component {
             containerClasses='right-tag-container' />
           <RecommendedStory
             story={this.props.recommended} />
-          <PopularIndex
-            stories={this.props.popular}
+          <PopularIndex 
+            stories={this.props.popular} 
             higherClass={"right-popular"} />
         </div>
       </div>
@@ -51,13 +51,16 @@ class Homepage extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {  
   const stories = getRecentStories(state)
   const popular = getPopularStories(state)
+
   const currentUser = getCurrentUser(state)
   const recommended = getRecommendedStory(state, currentUser)
+
   const feedStories = getFeedStories(state, currentUser)
   const tags = state.entities.tags
+
   return {
     stories,
     popular,

@@ -24,9 +24,8 @@ export default (state = {}, action) => {
 
     case RECEIVE_STORY:
     case RECEIVE_BOOKMARK:
-      return merge({}, newState, { [action.payload.story.id]: action.payload.story })
+      return merge({}, newState, {[action.payload.story.id]: action.payload.story})
 
-    
     case RECEIVE_COMMENT:
       const newComments = action.payload.story.comments_array
       newState[action.payload.story.id].comments_array = newComments

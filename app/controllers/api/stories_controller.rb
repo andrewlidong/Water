@@ -57,7 +57,7 @@ class Api::StoriesController < ApplicationController
     @stories = Story.stories_by_tag(tag_name)
     render :tag
   end
-  
+
   private
 
   def story_params

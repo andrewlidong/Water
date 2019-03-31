@@ -28,4 +28,4 @@ class Tag < ApplicationRecord
       .limit(1)
 
   end
-end 
+end

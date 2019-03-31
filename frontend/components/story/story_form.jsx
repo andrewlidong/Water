@@ -16,10 +16,10 @@ class StoryForm extends React.Component {
     }
   }
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps (newProps) {
     this.setState(newProps.story)
   }
-  
+
   handleSubmit (e) {
     e.preventDefault()
     let redirectUrl = '/'

@@ -10,7 +10,6 @@ class ModalLoginForm extends React.Component {
     this.update = this.update.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.guestLogin = this.guestLogin.bind(this)
-
   }
 
   update (type) {
@@ -24,10 +23,10 @@ class ModalLoginForm extends React.Component {
     this.props.submitAction(this.state)
   }
 
-  guestLogin(e) {
+  guestLogin (e) {
     this.setState({
       email: 'guest@gmail.com',
-      password: 'testing'
+      password: 'guest123'
     }, () => {
       this.props.submitAction(this.state)
     })
@@ -43,7 +42,6 @@ class ModalLoginForm extends React.Component {
 
         <h1 className="modal-form-header">Welcome Back</h1>
         <p className="modal-form-subheader">Sign in to access your personalized homepage, follow authors and topics you love, and clap for stories that matter to you. {guestLogin}</p>
-
         <ul className="modal-errors">
           {errors}
         </ul>

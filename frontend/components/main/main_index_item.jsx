@@ -29,10 +29,10 @@ const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
         <div className="item-extra">
           <div className="item-extra-left">
             <ProfileQuickLook author={author} />
-            <MainIndexItemData
+            <MainIndexItemData 
               date={story.date}
               time_estimate={story.time_estimate} />
-
+            
             {button}
           </div>
           <BookmarkButton story={story} />

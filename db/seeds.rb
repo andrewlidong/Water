@@ -278,9 +278,43 @@ file = EzDownload.open('https://media.gq.com/photos/5c92a2e0f660a04ba4e84da6/16:
 s18.image.attach(io: file, filename: 'clothing.jpg')
 s18.save
 
+s19 = Story.new(
+  title: 'Americans Are Smart About Science',
+  subtitle: 'And educating them won’t solve political problems',
+  body: "#{Faker::Lorem.paragraph_by_chars(8000)}",
+  author_id: theo.id,
+  all_tags: 'politics, america, science'
+)
+file = EzDownload.open('https://pixel.nymag.com/imgs/daily/science/2016/01/06/06-grattitude-brain-scan.w700.h700.jpg')
+s19.image.attach(io: file, filename: 'american.jpg')
+s19.save
+
+s20 = Story.new(
+  title: 'As the Stage Gets Bigger, Zion Williamson Only Jumps Higher',
+  subtitle: 'The Duke star’s box score was amazing enough in the Blue Devils’ Sweet 16 win over Virginia Tech, but the eye test was even more stunning',
+  body: "#{Faker::Lorem.paragraph_by_chars(2000)}",
+  author_id: mike.id,
+  all_tags: 'college, duke, zion, basketball'
+)
+file = EzDownload.open('https://cdn.vox-cdn.com/thumbor/xz_2B2kfUonmJRJCGBu_8eKGlsM=/0x0:4548x3032/920x613/filters:focal(2126x836:2852x1562):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/63323974/1139198944.jpg.0.jpg')
+s20.image.attach(io: file, filename: 'zion.jpg')
+s20.save
+
+s21 = Story.new(
+  title: 'A Seeded Story for our Guest',
+  subtitle: 'Imagine all the lives you could touch if you only expressed yourself',
+  body: "#{Faker::Lorem.paragraph_by_chars(5000)}",
+  author_id: guest.id,
+  all_tags: 'inspiration, example'
+)
+file = EzDownload.open('https://greatergrace.org.uk/wp-content/uploads/2016/03/example.jpg')
+s21.image.attach(io: file, filename: 'guest-example.jpg')
+s21.save
+
+
 users = [andrew, matthew, theo, mike, stacy, amanda]
 
-stories = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18]
+stories = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15, s16, s17, s18, s19, s20]
 
 users.each do |user|
   stories.each do |story|

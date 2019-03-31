@@ -30,7 +30,7 @@ class Show extends React.Component {
     const story = this.props.story
     const author = this.props.author
 
-    const tagLinks = story.tags.split(', ').map((tag, i) => {
+    const tagLinks = story.tags.split(', ').map((tag,i) => {
       return <TagLink key={i} tag={tag} />
     })
 

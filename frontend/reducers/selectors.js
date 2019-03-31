@@ -34,7 +34,7 @@ export const authorRecentStories = (state, author) => {
   if (recentStoryIds) {
     return recentStoryIds.map(id => state.entities.stories[id])
   }
-  
+
   return []
 }
 
@@ -73,10 +73,10 @@ export const getStoriesByTag = (state, tag) => {
     }
     return false
   })
-} 
+}
 
 export const getRecommendedStory = (state, currentUser) => {
   if (currentUser && currentUser.recommendedStory) {
     return state.entities.stories[currentUser.recommendedStory]
   }
-} 
+}

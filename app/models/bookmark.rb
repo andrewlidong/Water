@@ -6,4 +6,4 @@ class Bookmark < ApplicationRecord
   belongs_to :story,
     foreign_key: :story_id,
     class_name: :Story
-end 
+end

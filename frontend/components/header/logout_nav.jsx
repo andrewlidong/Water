@@ -29,7 +29,7 @@ class LogoutNav extends React.Component {
         <NewButton addedClass="right" />
 
         <Link to='/bookmarks'>
-          <img
+          <img 
             src={window.bookmarkOpen}
             className="header-bookmark-icon" />
         </Link>
@@ -57,6 +57,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(
-  null,
+  null, 
   mapDispatchToProps
 )(LogoutNav)

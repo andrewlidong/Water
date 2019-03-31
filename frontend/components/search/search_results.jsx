@@ -3,7 +3,6 @@ import UserSearchItem from './user_search_item'
 import StorySearchItem from './story_search_item'
 import TagLink from '../tags/tag_link'
 
-
 export default ({ query, stories, users, tags }) => {
 
   if (query === '') return <div></div>
@@ -21,11 +20,10 @@ export default ({ query, stories, users, tags }) => {
   const tagMatches = tags.filter(tag => {
     return tag.toLowerCase().match(reg)
   })
-  
+
   const userResults = userMatches.map((user, i) => <UserSearchItem key={i} user={user} />)
   const storyResults = storyMatches.map((story, i) => <StorySearchItem key={i} story={story} />)
   const tagResults = tagMatches.map((tag, i) => <TagLink key={i} tag={tag} />)
-
 
   return (
     <div className="search-results">

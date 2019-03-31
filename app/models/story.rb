@@ -11,7 +11,7 @@ class Story < ApplicationRecord
 
   has_many :claps,
     as: :clapable
-
+  
   has_many :taggings,
     foreign_key: :story_id,
     class_name: :Tagging,
@@ -20,7 +20,7 @@ class Story < ApplicationRecord
   has_many :tags,
     through: :taggings,
     source: :tag
-    
+  
   has_many :bookmarks,
     foreign_key: :story_id,
     class_name: :Bookmark
@@ -28,7 +28,7 @@ class Story < ApplicationRecord
   has_many :bookmark_users,
     through: :bookmarks,
     source: :user
-    
+
   has_one_attached :image
 
   def self.popular_stories
@@ -68,6 +68,13 @@ class Story < ApplicationRecord
     "#{month} #{day}"
   end
 
+  def self.stories_by_tag(name)
+    self
+      .all
+      .joins(:tags)
+      .where('tags.name = ?', name)
+  end
+
   def all_tags=(names)
     new_tags = names.split(",").map do |name|
       Tag.where(name: name.strip).first_or_create!
@@ -75,18 +82,10 @@ class Story < ApplicationRecord
     self.tags = new_tags
   end
 
-  def self.stories_by_tag(name)
-    self
-      .all
-      .joins(:tags)
-      .where('tags.name = ?', name)
-  end
-  
   def all_tags
     self.tags.map(&:name).join(', ')
   end
 
-  
   private
 
   def ensure_image

@@ -18,4 +18,4 @@ json.users do
       json.feedIds story.author.feed_ids
     end
   end
-end 
+end
