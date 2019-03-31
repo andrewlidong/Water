@@ -22,13 +22,15 @@ class EditStoryForm extends React.Component {
         story={this.props.story}
         type={this.props.type}
         currentUser={this.props.currentUser}
-        submitAction={this.props.submitAction} />
+        submitAction={this.props.submitAction}
+        errors={this.props.errors} />
     )
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id
+  const errors = state.errors.story
   const story = state.entities.stories[id]
   const defaultStory = {
     title: '',
@@ -39,7 +41,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     story: story || defaultStory,
     type: 'Edit',
-    currentUser: getCurrentUser(state)
+    currentUser: getCurrentUser(state),
+    errors
   }
 }
 
