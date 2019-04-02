@@ -90,7 +90,7 @@ class ModalSignupForm extends React.Component {
           type="file"
           onChange={this.handleFile.bind(this)} />
 
-        {preview}
+        {/* {preview} */}
 
         <button className="modal-form-button">
           {this.props.title}

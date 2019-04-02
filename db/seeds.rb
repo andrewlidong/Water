@@ -23,7 +23,7 @@ guest = User.new(
   email: 'guest@gmail.com',
   password: 'testing'
 )
-file = EzDownload.open('https://uploads.scratch.mit.edu/users/avatars/395/5762.png')
+file = EzDownload.open('https://trondheim.makerfaire.com/wp-content/uploads/sites/166/2016/06/female-generic-icon-silhouette_95549.jpg')
 guest.avatar.attach(io: file, filename: 'guest.jpg')
 guest.save
 
@@ -302,7 +302,7 @@ s20.save
 
 s21 = Story.new(
   title: 'A Seeded Story for our Guest',
-  subtitle: 'Imagine all the lives you could touch if you only expressed yourself',
+  subtitle: 'Imagine all the people...',
   body: "#{Faker::Lorem.paragraph_by_chars(5000)}",
   author_id: guest.id,
   all_tags: 'inspiration, example'

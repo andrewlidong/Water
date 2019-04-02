@@ -9,7 +9,7 @@ const TagLinkContainer = ({tags, containerClasses}) => {
 
   return (
     <div className={containerClasses}>
-      <h1 className="main-index-title">Common Tags</h1>
+      <h1 className="main-index-title">Recent Tags</h1>
       <div className="tag-links-flex">
         {tagLinks}
       </div>

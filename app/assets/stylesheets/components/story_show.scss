@@ -34,16 +34,16 @@
   margin-left: 10px;
 
   font-size: 14px;
-  color: $green;
+  color: $blue;
 
-  border-color: $green;
+  border-color: $blue;
   border-radius: 4px;
   cursor: pointer;
   outline: none;
 
   &.followed {
     color: white;
-    background-color: $green;
+    background-color: $blue;
   }
 }
 

@@ -10,7 +10,7 @@ const Header = () => {
       <NewButton addedClass="left" />
 
       <Link className="header-title" to="/">
-        Water
+        ThisIsWater
       </Link>
 
       <Nav />

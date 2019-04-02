@@ -37,12 +37,12 @@ class Homepage extends React.Component {
           editButton={false} />
 
         <div className="homepage-right">
+          <RecommendedStory
+            story={this.props.recommended} />
+
           <TagLinkContainer
             tags={this.props.tags}
             containerClasses='right-tag-container' />
-
-          <RecommendedStory
-            story={this.props.recommended} />
 
           <PopularIndex
             stories={this.props.popular}

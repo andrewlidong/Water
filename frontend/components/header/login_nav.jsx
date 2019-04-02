@@ -25,7 +25,7 @@ class LoginNav extends React.Component {
         <button
           className="header-button signup"
           onClick={this.handleSignup.bind(this)}>
-          Get Started
+          Sign Up
         </button>
       </nav>
     )

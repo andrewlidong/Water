@@ -11,7 +11,7 @@ const MainIndexBuffer = ({
   if (currentUser && feedStories.length >= 1) {
     feedSection = (
       <MainIndex
-        title='Feed'
+        title='Personal Stream'
         stories={feedStories}
         additionalClasses=''
       />
@@ -28,7 +28,7 @@ const MainIndexBuffer = ({
         containerClasses='mobile-tag-container' />
 
       <MainIndex
-        title='Recent'
+        title='Recent Stream'
         stories={stories} />
     </div>
   )

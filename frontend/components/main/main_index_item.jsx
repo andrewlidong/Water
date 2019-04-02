@@ -40,9 +40,9 @@ const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
             currentUserId={currentUserId} />
         </div>
       </div>
-      <div className="main-index-item-img">
+      <Link className="main-index-item-img" to={storyUrl}>
         <img src={story.image_url} />
-      </div>
+      </Link>
     </div>
   )
 }

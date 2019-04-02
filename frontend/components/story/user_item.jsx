@@ -9,7 +9,9 @@ const UserItem = ({ user, story }) => {
   
   return (
     <div className="user-item">
+      <Link to={userUrl}>
       <img className="user-item-image" src={user.avatar} />
+      </Link>
 
       <div className="user-item-details">
         <div className="user-item-details-container">

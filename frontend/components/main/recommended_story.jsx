@@ -9,12 +9,12 @@ const RecommendedStory = ({story, author}) => {
   if (story) {
     content = <RecommendedStoryItem story={story} author={author} />
   } else {
-    content = <p className="recommend-story-warning">Clap stories you like to generate recommendations.</p>
+    content = <p className="recommend-story-warning">Water will generate a recommendation depending on your likes.</p>
   }
 
   return (
     <div className="recommended-container">
-      <h1 className="main-index-title">Recommended</h1>
+      <h1 className="main-index-title">Recommended Read</h1>
       {content}
     </div>
   )

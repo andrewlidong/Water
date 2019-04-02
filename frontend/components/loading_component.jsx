@@ -4,9 +4,8 @@ class LoadingComponent extends React.Component {
 
   state = { val: '' }
 
-  chars = ['W', 'h', 'a', 't', '\'', 's',
-    ' ', 'y', 'o', 'u', 'r',
-    ' ', 's', 't', 'o', 'r', 'y', '?']
+  chars = ['L', 'o', 'a', 'd', 'i', 'n',
+    'g', '.']
 
   timestamp = Date.now()
 

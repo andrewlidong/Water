@@ -118,7 +118,7 @@ class StoryForm extends React.Component {
             type='text'
             onChange={this.update('tags')}
             value={this.state.tags}
-            placeholder="Comma seperated tags, such as 'art, history'" />
+            placeholder="Comma seperated tags, such as 'sports, museums'" />
 
           <p className="story-form-label">Select a cover image:</p>
           <input

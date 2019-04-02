@@ -19,7 +19,7 @@
 
 .header-button {  
   font-size: 16px;
-  color: $green;
+  color: $blue;
 
   cursor: pointer;
   outline: none;
@@ -31,14 +31,14 @@
 }
 
 .signup {
-  border-color: $green;
+  border-color: $blue;
   border-radius: 4px;
   padding: 8px 10px;
 }
 
 .login, .logout {
   border: none;
-  background-color: white;
+  background-color: inherit;
 }
 
 .logout {
