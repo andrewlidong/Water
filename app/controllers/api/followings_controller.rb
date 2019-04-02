@@ -1,4 +1,5 @@
 class Api::FollowingsController < ApplicationController
+
   def create
     following = Following.new
     following.followed_id = params[:id]
@@ -26,4 +27,5 @@ class Api::FollowingsController < ApplicationController
 
     render :show
   end
+  
 end

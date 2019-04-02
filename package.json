@@ -1,7 +1,7 @@
 {
-  "name": "Water",
+  "name": "ThisIsWater",
   "version": "1.0.0",
-  "description": "Water is a full-stack, single-page application built with React.js and Ruby on Rails. Water is inspired by the story-sharing platform Medium.",
+  "description": "ThisIsWater is a full-stack, single-page application built with React.js and Ruby on Rails. Water is inspired by the story-sharing platform Medium.",
   "main": "sampleState.js",
   "directories": {
     "lib": "lib",

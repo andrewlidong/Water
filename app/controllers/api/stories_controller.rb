@@ -38,7 +38,7 @@ class Api::StoriesController < ApplicationController
         render json: @story.errors.full_messages, status: 417
       end
     else
-      render json: ["You cannot update that story"], status: 401
+      render json: ["Can't update that story"], status: 401
     end
   end
 
@@ -48,7 +48,7 @@ class Api::StoriesController < ApplicationController
       @story.destroy
       render :show
     else
-      render json: ["You cannot destroy that story"], status: 401
+      render json: ["Can't destroy that story"], status: 401
     end
   end
 
@@ -63,4 +63,5 @@ class Api::StoriesController < ApplicationController
   def story_params
     params.require(:story).permit(:title, :subtitle, :body, :image, :all_tags)
   end
+  
 end

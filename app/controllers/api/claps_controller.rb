@@ -1,4 +1,5 @@
 class Api::ClapsController < ApplicationController
+  
   def create
     @clap = Clap.find_by(
       clapable_type: params[:clap][:clapable_type],
@@ -7,9 +8,9 @@ class Api::ClapsController < ApplicationController
     )
 
     if @clap
-      new_quantity = params[:clap][:quantity].to_i + @clap.quantity
-      new_quantity = 20 if new_quantity > 20
-      if @clap.update(quantity: new_quantity)
+      new_clap_count = params[:clap][:quantity].to_i + @clap.quantity
+      new_clap_count = 20 if new_clap_count > 20
+      if @clap.update(quantity: new_clap_count)
         @clapable = @clap.clapable
         render :show
       else
@@ -33,4 +34,5 @@ class Api::ClapsController < ApplicationController
   def clap_params
     params.require(:clap).permit(:clapable_type, :clapable_id, :quantity)
   end
+  
 end

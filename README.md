@@ -1,10 +1,10 @@
-# Water
+# ThisIsWater
 
-[Link to Live Site](https://water-aa.herokuapp.com/)
+[Link to Live Site](https://thisiswater.herokuapp.com/)
 
-Water is a full-stack, single-page application built with React.js and Ruby on Rails.  Water is inspired by the story-sharing platform Medium.
+ThisIsWater is a full-stack, single-page application built with React.js and Ruby on Rails.  ThisIsWater is inspired by the story-sharing platform Medium.
 
-Water supports the following features:
+ThisIsWater supports the following features:
   * Mobile-first
   * Authentication/Authorization
   * Stories

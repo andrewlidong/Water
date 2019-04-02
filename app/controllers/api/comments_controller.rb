@@ -1,4 +1,5 @@
 class Api::CommentsController < ApplicationController
+
   def create
     @comment = Comment.new(comment_params)
     @comment.author_id = current_user.id
@@ -21,4 +22,5 @@ class Api::CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:story_id, :body)
   end
+  
 end

@@ -33,4 +33,5 @@ class Api::BookmarksController < ApplicationController
 
     render :show
   end
+  
 end
