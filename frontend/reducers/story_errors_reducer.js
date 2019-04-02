@@ -1,13 +1,13 @@
-import { RECEIVE_STORY_ERRORS } from '../actions/story_actions'
+import { RECEIVE_STORY_ERRORS } from '../actions/story_actions';
 
 export default (state = [], action) => {
-    Object.freeze(state)
+    Object.freeze(state);
 
     switch (action.type) {
         case RECEIVE_STORY_ERRORS:
-            return action.errors
+            return action.errors;
 
         default:
-            return []
-    }
-} 
+            return [];
+    };
+};
