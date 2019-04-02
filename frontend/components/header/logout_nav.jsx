@@ -27,7 +27,7 @@ class LogoutNav extends React.Component {
 
         <Link to='/bookmarks'>
           <img 
-            src={window.bookmarkOpen}
+            src={window.bookmarkSolid}
             className="header-bookmark-icon" />
         </Link>
 

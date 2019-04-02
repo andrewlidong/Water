@@ -40,9 +40,7 @@ class ModalLoginForm extends React.Component {
         onSubmit={this.handleSubmit}>
 
         <h1 className="modal-form-header">Feel That?</h1>
-        <p className="modal-form-subheader">That's the feeling of freedom that comes from being able to read and share the stories you really care about.  Sign in to view the stream, follow users and tags, and cheer for what you love.  Don't have an account?
-        
-        {guestLogin}</p>
+        <p className="modal-form-subheader">That's the feeling of freedom that comes from reading and sharing the stories you really care about.  Signin to view your personalized stream, follow users, bookmark stories and cheer for what you love.  Don't have an account? => {guestLogin}</p>
         <ul className="modal-errors">
           {errors}
         </ul>

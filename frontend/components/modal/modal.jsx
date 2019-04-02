@@ -37,7 +37,7 @@ class Modal extends React.Component {
           <button
             onClick={this.handleHide}
             className="modal-close-button">
-            x
+            X
         </button>
 
           {modal}

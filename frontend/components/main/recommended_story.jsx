@@ -9,7 +9,7 @@ const RecommendedStory = ({story, author}) => {
   if (story) {
     content = <RecommendedStoryItem story={story} author={author} />
   } else {
-    content = <p className="recommend-story-warning">Water will generate a recommendation depending on your likes.</p>
+    content = <p className="recommend-story-warning">Water will generate a recommendation based on your likes.</p>
   }
 
   return (

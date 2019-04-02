@@ -1,6 +1,9 @@
 class Tag < ApplicationRecord
+
+  # VALIDATIONS
   validates :name, presence: true, uniqueness: true
 
+  # ASSOCIATIONS
   has_many :taggings,
     foreign_key: :tag_id,
     class_name: :Tagging
@@ -9,9 +12,9 @@ class Tag < ApplicationRecord
     through: :taggings,
     source: :story
 
+  # METHODS
   def self.most_popular_tags
-    self
-      .all
+    self.all
       .joins(:taggings)
       .group('tags.id')
       .order('COUNT(taggings.story_id) DESC')
@@ -27,4 +30,5 @@ class Tag < ApplicationRecord
       .order('COUNT(claps.id)')
       .limit(amount)
   end
+  
 end

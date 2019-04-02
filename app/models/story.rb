@@ -1,8 +1,11 @@
 class Story < ApplicationRecord
+
+  # VALIDATIONS
   validates :title, :subtitle, :body, :author_id,
     presence: true
   validate :ensure_image
 
+  # ASSOCIATIONS
   belongs_to :author,
     foreign_key: :author_id,
     class_name: :User
@@ -31,6 +34,7 @@ class Story < ApplicationRecord
 
   has_one_attached :image
 
+  # METHODS
   def self.popular_stories
     self
       .all
@@ -48,7 +52,7 @@ class Story < ApplicationRecord
   
   def time_estimate 
     word_count = self.body.split(' ').length
-    minutes = word_count / 200
+    minutes = word_count / 150
     if minutes < 1
       "< 1 min read"
     else
