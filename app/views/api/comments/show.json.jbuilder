@@ -1,6 +1,6 @@
 json.story do
   json.id @comment.story.id
-  json.comments_array @comment.story.comments.map { |com| com.id }
+  json.comments_array @comment.story.comments.map { |comment| comment.id }
 end
 
 json.comment do

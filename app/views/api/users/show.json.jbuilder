@@ -21,7 +21,7 @@ else
         json.image_url url_for(story.image)
         json.date story.date
         json.time_estimate story.time_estimate
-        json.comments_array story.comments.map {|com| com.id}
+        json.comments_array story.comments.map {|comment| comment.id}
         json.totalClaps story.totalClaps
       end
     end
