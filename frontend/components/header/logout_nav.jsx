@@ -34,7 +34,7 @@ class LogoutNav extends React.Component {
         <button
           className="header-button logout"
           onClick={this.handleLogout.bind(this)}>
-          Sign Out
+          Log Out
         </button>
 
         <Link to={userURL}>

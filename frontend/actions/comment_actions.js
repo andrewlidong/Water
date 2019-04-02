@@ -1,17 +1,17 @@
-import * as ApiUtil from '../util/comment_api_util'
+import * as ApiUtil from '../util/comment_api_util';
 
-export const RECEIVE_COMMENT = 'RECEIVE_COMMENT'
-export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
+export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
+
+export const createComment = comment => dispatch => {
+  return ApiUtil.createComment(comment).then(
+    payload => dispatch(receiveComment(payload))
+  );
+};
 
 export const receiveComment = payload => {
   return {
     type: RECEIVE_COMMENT,
     payload
   }
-}
-
-export const createComment = comment => dispatch => {
-  return ApiUtil.createComment(comment).then(
-    payload => dispatch(receiveComment(payload))
-  )
-}
+};

@@ -19,13 +19,13 @@ class LoginNav extends React.Component {
         <button
           className="header-button login"
           onClick={this.handleLogin.bind(this)}>
-          Sign In
+          Log In
         </button>
         
         <button
           className="header-button signup"
           onClick={this.handleSignup.bind(this)}>
-          Sign Up
+          Register
         </button>
       </nav>
     )
