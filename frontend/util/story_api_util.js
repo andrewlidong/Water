@@ -2,22 +2,22 @@ export const fetchAllStories = () => {
   return $.ajax({
     method: 'GET',
     url: '/api/stories'
-  })
-}
+  });
+};
 
 export const fetchStory = id => {
   return $.ajax({
     method: 'GET',
     url: `/api/stories/${id}`
-  })
-}
+  });
+};
 
-export const fetchTagStories = name => {
+export const fetchTagStories = tag => {
   return $.ajax({
     method: 'GET',
-    url: `/api/tags/${name}`
-  })
-}
+    url: `/api/tags/${tag}`
+  });
+};
 
 export const createStory = formData => {
   return $.ajax({
@@ -26,8 +26,8 @@ export const createStory = formData => {
     data: formData,
     contentType: false,
     processData: false
-  })
-}
+  });
+};
 
 export const updateStory = story => {
   return $.ajax({
@@ -36,12 +36,12 @@ export const updateStory = story => {
     data: story,
     contentType: false,
     processData: false
-  })
-}
+  });
+};
 
 export const destroyStory = id => {
   return $.ajax({
     method: 'DELETE',
     url: `/api/stories/${id}`
-  })
-}
+  });
+};

@@ -3,15 +3,15 @@ export const login = user => {
     method: 'POST',
     url: '/api/session',
     data: { user }
-  })
-}
+  });
+};
 
 export const logout = () => {
   return $.ajax({
     method: 'DELETE',
     url: '/api/session'
-  })
-}
+  });
+};
 
 export const signup = formData => {
   return $.ajax({
@@ -20,5 +20,5 @@ export const signup = formData => {
     data: formData,
     contentType: false,
     processData: false
-  })
-}
+  });
+};

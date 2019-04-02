@@ -3,5 +3,5 @@ export const createClap = clap => {
     method: 'POST',
     url: '/api/claps',
     data: { clap }
-  })
-}
+  });
+};
