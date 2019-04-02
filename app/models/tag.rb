@@ -13,12 +13,13 @@ class Tag < ApplicationRecord
     source: :story
 
   # METHODS
+
   def self.most_popular_tags
     self.all
       .joins(:taggings)
       .group('tags.id')
       .order('COUNT(taggings.story_id) DESC')
-      .limit(8)
+      .limit(6)
       .pluck(:name)
   end
 
@@ -30,5 +31,5 @@ class Tag < ApplicationRecord
       .order('COUNT(claps.id)')
       .limit(amount)
   end
-  
+
 end

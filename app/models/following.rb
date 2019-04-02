@@ -13,6 +13,7 @@ class Following < ApplicationRecord
     class_name: :User
 
   # METHODS
+  
   def not_self
     if self.followed_id == self.follower_id
       self.errors[:User] << "cannot follow yourself"

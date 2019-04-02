@@ -55,48 +55,6 @@ class User < ApplicationRecord
 
   # METHODS
 
-  def feed_ids 
-    self
-      .followed_users_stories
-      .limit(10)
-      .pluck(:id)
-      .shuffle
-  end
-
-  def bookmark_ids
-    self.bookmarked_stories.pluck(:id)
-  end
-
-  def recommended_tag
-    Tag
-      .joins(:stories)
-      .joins('INNER JOIN claps ON claps.clapable_id = stories.id')
-      .where('claps.user_id = ?', self.id)
-      .order('claps.created_at DESC')
-      .limit(5)
-      .shuffle
-      .first
-  end
-
-  def recommended_story
-    tag = self.recommended_tag
-    return tag unless tag
-
-    tag
-      .most_popular_stories(4)
-      .shuffle
-      .first
-      .id
-  end
-
-  def recent_stories
-    self
-      .authored_stories
-      .order('stories.created_at DESC')
-      .limit(3)
-      .pluck(:id)
-  end
-
   def user_since
     months = [
       'Jan', 'Feb', 'Mar',
@@ -116,6 +74,50 @@ class User < ApplicationRecord
   def num_followers
     self.followers.count
   end
+
+  def feed_ids 
+    self
+      .followed_users_stories
+      .limit(10)
+      .pluck(:id)
+      .shuffle
+  end
+
+  def bookmark_ids
+    self.bookmarked_stories.pluck(:id)
+  end
+
+  def recent_stories
+    self
+      .authored_stories
+      .order('stories.created_at DESC')
+      .limit(3)
+      .pluck(:id)
+  end
+
+  def recommended_story
+    tag = self.recommended_tag
+    return tag unless tag
+
+    tag
+      .most_popular_stories(4)
+      .shuffle
+      .first
+      .id
+  end
+
+  def recommended_tag
+    Tag
+      .joins(:stories)
+      .joins('INNER JOIN claps ON claps.clapable_id = stories.id')
+      .where('claps.user_id = ?', self.id)
+      .order('claps.created_at DESC')
+      .limit(5)
+      .shuffle
+      .first
+  end
+
+  # AUTHORIZATION
 
   attr_reader :password
 

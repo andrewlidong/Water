@@ -35,13 +35,19 @@ class Story < ApplicationRecord
   has_one_attached :image
 
   # METHODS
-  def self.popular_stories
-    self
-      .all
-      .joins(:claps)
-      .group('stories.id')
-      .order('SUM(claps.quantity) DESC')
-      .limit(5)
+  
+  def date
+    months = [
+      'Jan', 'Feb', 'Mar',
+      'Apr', 'May', 'Jun', 
+      'Jul', 'Aug', 'Sep',
+      'Oct', 'Nov', 'Dec'
+    ]
+
+    month = months[self.created_at.month - 1]
+    day = self.created_at.day
+
+    return "#{month} #{day}"
   end
 
   def totalClaps
@@ -49,7 +55,7 @@ class Story < ApplicationRecord
       .claps
       .sum(:quantity)
   end
-  
+
   def time_estimate 
     word_count = self.body.split(' ').length
     minutes = word_count / 150
@@ -59,17 +65,14 @@ class Story < ApplicationRecord
       "#{minutes} min read"
     end
   end
-
-  def date
-    months = [
-      'Jan', 'Feb', 'Mar',
-      'Apr', 'May', 'Jun', 
-      'Jul', 'Aug', 'Sep',
-      'Oct', 'Nov', 'Dec'
-    ]
-    month = months[self.created_at.month - 1]
-    day = self.created_at.day
-    "#{month} #{day}"
+  
+  def self.popular_stories
+    self
+      .all
+      .joins(:claps)
+      .group('stories.id')
+      .order('SUM(claps.quantity) DESC')
+      .limit(3)
   end
 
   def self.stories_by_tag(name)
@@ -97,4 +100,5 @@ class Story < ApplicationRecord
       errors[:image] << "must be attached"
     end
   end
+
 end

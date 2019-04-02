@@ -14,6 +14,7 @@ class Comment < ApplicationRecord
 
   
   # METHODS
+  
   def date
     months = [
       'Jan', 'Feb', 'Mar', 

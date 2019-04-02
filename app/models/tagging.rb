@@ -1,5 +1,6 @@
 class Tagging < ApplicationRecord
 
+  # ASSOCIATIONS
   belongs_to :story,
     foreign_key: :story_id,
     class_name: :Story,
@@ -8,4 +9,5 @@ class Tagging < ApplicationRecord
   belongs_to :tag,
     foreign_key: :tag_id,
     class_name: :Tag
+    
 end
