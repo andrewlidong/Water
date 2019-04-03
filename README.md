@@ -6,7 +6,7 @@
 
 Access the live site [here](https://thisiswater.herokuapp.com/)
 
-![Splash Page](https://i.imgur.com/f97HEU8.png "Splash Page")
+<p align="center"><img src="https://i.imgur.com/f97HEU8.png" width="800px" /></p>
 
 ## Architecture and Technologies
 
@@ -49,17 +49,18 @@ Users can register and login to the app through a modal.  Users can view the spl
 
 ### Stories
 
-![Story Show](https://i.imgur.com/MlVwSsY.png "Story Show")
-
 Users can write and read stories.  Stories can contain images which are stored on the AWS S3 cloud and handled with Rails Active Record.  Stories can be tagged, and feature a title, subtitle and body text.  The length of a story is calculated and thus an approximate readtime is generated on the backend.  Additionally, the creation date of the story is saved.  
 
-![Story Show2](https://i.imgur.com/pmHY4ys.png "Story Show2")
+<p align="center"><img src="https://i.imgur.com/MlVwSsY.png" width="600px" /></p>
+
+<p align="center"><img src="https://i.imgur.com/pmHY4ys.png" width="600px" /></p>
 
 ### Comments
 
-![Comment Show](https://i.imgur.com/SEdexc3.png "Comment Show")
-
 Users can comment on stories, which then are immediately displayed at the bottom of the story in a comment section.  The date of the comment is saved and comments are displayed in descending order of recency.  
+
+<p align="center"><img src="https://i.imgur.com/SEdexc3.png" width="400px" /></p>
+
 
 ### Claps
 
@@ -79,9 +80,9 @@ Users can favorite a story, thus saving the story for later reading.  Users can 
 
 ### User Profiles
 
-![User Profile](https://i.imgur.com/4diDn0g.png "User Profile")
-
 Each user has a profile which displays information about the user such as when they joined ThisIsWater and how many followers they have.  Additionally, on a users profile is the option to follow unless looking at the current user's profile.  Each user has many stories which are displayed on the profile page.  If the current user is looking at his or her own profile, he or she can then edit stories.  
+
+<p align="center"><img src="https://i.imgur.com/4diDn0g.png" width="600px" /></p>
 
 ### Personalized Stream
 
@@ -97,10 +98,9 @@ On the splash page the 5 most popular stories are displayed, determined by the n
 
 ### RegExp Search
 
-![Search](https://i.imgur.com/3uhjxX5.png "Search")
-
-
 Users, stories and tags can be searched for using the search bar.  The search feature uses regular expression matching to filter through content based on the user's query.  All results are displayed in a search page dynamically, with working links for further inspection.  
+
+<p align="center"><img src="https://i.imgur.com/3uhjxX5.png" width="600px" /></p>
 
 ### Error Handling
 
