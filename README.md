@@ -4,9 +4,9 @@
 
 "ThisIsWater" is a full-stack single-page web application inspired by the story-sharing platform "Medium". ThisIsWater is built using Rails/PostgreSQL on the backend and React.js/Redux on the frontend. 
 
-Access the live site [here](https://thisiswater.herokuapp.com/)
-
 <p align="center"><img src="https://i.imgur.com/f97HEU8.png" width="800px" /></p>
+
+Access the live site [here](https://thisiswater.herokuapp.com/)
 
 ## Architecture and Technologies
 
@@ -50,8 +50,6 @@ Users can register and login to the app through a modal.  Users can view the spl
 ### Stories
 
 Users can write and read stories.  Stories can contain images which are stored on the AWS S3 cloud and handled with Rails Active Record.  Stories can be tagged, and feature a title, subtitle and body text.  The length of a story is calculated and thus an approximate readtime is generated on the backend.  Additionally, the creation date of the story is saved.  
-
-<p align="center"><img src="https://i.imgur.com/MlVwSsY.png" width="600px" /></p>
 
 <p align="center"><img src="https://i.imgur.com/pmHY4ys.png" width="600px" /></p>
 
