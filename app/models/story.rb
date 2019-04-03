@@ -72,7 +72,7 @@ class Story < ApplicationRecord
       .joins(:claps)
       .group('stories.id')
       .order('SUM(claps.quantity) DESC')
-      .limit(3)
+      .limit(5)
   end
 
   def self.stories_by_tag(name)

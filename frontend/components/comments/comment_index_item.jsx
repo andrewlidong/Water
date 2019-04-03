@@ -1,16 +1,16 @@
-import React from 'react'
-import { authorOfComment } from '../../reducers/selectors'
-import { connect } from 'react-redux'
-import ClapButton from '../clap/clap_button'
+import React from 'react';
+import { connect } from 'react-redux';
+import ClapButton from '../clap/clap_button';
+import { authorOfComment } from '../../reducers/selectors';
 
 const CommentIndexItem = ({ comment, author, clapOrStory }) => {
-  let finalEl = <ClapButton content={comment} type="Comment" />
+  let lastElement = <ClapButton content={comment} type="Comment" />;
 
   if (clapOrStory === 'story') {
-    finalEl = <p className="comment-index-item-storyname">{storyName}</p>
+    lastElement = <p className="comment-index-item-storyname">{storyName}</p>;
   }
 
-  if (!comment || !author) return <div></div>
+  if (!comment || !author) return <div></div>;
   
   return (
     <div className="comment-index-item">
@@ -25,24 +25,22 @@ const CommentIndexItem = ({ comment, author, clapOrStory }) => {
       <p className="comment-index-item-body">{comment.body}</p>
 
       <div className="comment-index-clapOrStory-container">
-        {finalEl}
+        {lastElement}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state, ownProps) => {
-  let author
+  let author;
 
   if (ownProps.comment) {
-    author = authorOfComment(state, ownProps.comment)
+    author = authorOfComment(state, ownProps.comment);
   }
   
   return {
     author
-  }
-}
+  };
+};
 
-export default connect(
-  mapStateToProps
-)(CommentIndexItem)
+export default connect(mapStateToProps)(CommentIndexItem);

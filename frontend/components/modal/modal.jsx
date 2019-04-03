@@ -1,18 +1,18 @@
-import React from 'react'
-import ModalLoginForm from './modal_login_form'
-import ModalSignupForm from './modal_signup_form'
-import { withRouter } from 'react-router-dom'
+import React from 'react';
+import ModalLoginForm from './modal_login_form';
+import ModalSignupForm from './modal_signup_form';
+import { withRouter } from 'react-router-dom';
 
 class Modal extends React.Component {
 
   handleHide = event => {
-    this.props.history.push('/')
-    this.props.hide()
-  }
+    this.props.history.push('/');
+    this.props.hide();
+  };
 
   render() {
-    const classes = this.props.reveal ? 'modal' : 'modal hide'
-    let modal = <div></div>
+    const classes = this.props.reveal ? 'modal' : 'modal hide';
+    let modal = <div></div>;
 
     if (this.props.reveal === 'login') {
       modal = <ModalLoginForm
@@ -21,10 +21,9 @@ class Modal extends React.Component {
         submitAction={this.props.login}
         hide={this.props.hide}
         revealModalSignup={this.props.revealModalSignup} />
-
     } else if (this.props.reveal) {
       modal = <ModalSignupForm
-        title="Sign Up"
+        title="Register"
         errors={this.props.errors}
         submitAction={this.props.signup}
         hide={this.props.hide}
@@ -43,7 +42,8 @@ class Modal extends React.Component {
           {modal}
         </div>
       </div>
-    )
-  }
-}
-export default withRouter(Modal)
+    );
+  };
+};
+
+export default withRouter(Modal);

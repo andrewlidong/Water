@@ -1,16 +1,16 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import MainIndexItemData from './main_index_item_data'
-import ProfileQuickLook from '../profile/profile_quick_look'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import MainIndexItemData from './main_index_item_data';
+import ProfileQuickLook from '../profile/profile_quick_look';
 
 const PopularIndexItem = ({ story, author, num }) => {
 
-  const storyUrl = `/stories/${story.id}`
+  const storyUrl = `/stories/${story.id}`;
 
   return (
     <div className="popular-index-item">
-      <p className="popular-index-item-num">0{num + 1}</p>
+      <p className="popular-index-item-num">{num + 1}.</p>
       <div className="popular-index-item-content">
         <div className="popular-story">
           <Link to={storyUrl}>
@@ -25,16 +25,15 @@ const PopularIndexItem = ({ story, author, num }) => {
           time_estimate={story.time_estimate} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state, ownProps) => {
-  const author = state.entities.users[ownProps.story.author_id]
+  const author = state.entities.users[ownProps.story.author_id];
+
   return {
     author
-  }
-}
+  };
+};
 
-export default connect(
-  mapStateToProps
-)(PopularIndexItem)
+export default connect(mapStateToProps)(PopularIndexItem);

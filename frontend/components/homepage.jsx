@@ -1,22 +1,22 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { fetchAllStories } from '../actions/story_actions'
-import MainIndexBuffer from './main/main_index_buffer'
-import PopularIndex from './main/popular_index'
-import { getPopularStories, getRecentStories, getFeedStories, getCurrentUser, getRecommendedStory } from '../reducers/selectors'
-import LoadingComponent from './loading_component'
-import TagLinkContainer from './tags/tag_link_container'
-import RecommendedStory from './main/recommended_story'
+import React from 'react';
+import { connect } from 'react-redux';
+import { getPopularStories, getRecentStories, getFeedStories, getCurrentUser, getRecommendedStory } from '../reducers/selectors';
+import { fetchAllStories } from '../actions/story_actions';
+import MainIndexBuffer from './main/main_index_buffer';
+import PopularIndex from './main/popular_index';
+import TagLinkContainer from './tags/tag_link_container';
+import RecommendedStory from './main/recommended_story';
+import LoadingComponent from './loading_component';
 
 class Homepage extends React.Component {
 
-  state = { loading: true }
+  state = { loading: true };
 
   componentDidMount() {
     this.props.fetchAllStories().then(
       success => this.setState({ loading: false })
-    )
-  }
+    );
+  };
 
   render() {
     if (this.state.loading) {
@@ -54,14 +54,14 @@ class Homepage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const currentUser = getCurrentUser(state)
+  const currentUser = getCurrentUser(state);
 
-  const stories = getRecentStories(state, currentUser)
-  const feedStories = getFeedStories(state, currentUser)
-  const popular = getPopularStories(state)
-  const recommended = getRecommendedStory(state, currentUser)
+  const stories = getRecentStories(state, currentUser);
+  const feedStories = getFeedStories(state, currentUser);
+  const popular = getPopularStories(state);
+  const recommended = getRecommendedStory(state, currentUser);
 
-  const tags = state.entities.tags
+  const tags = state.entities.tags;
 
   return {
     stories,
@@ -71,7 +71,7 @@ const mapStateToProps = state => {
     feedStories,
     tags
   }
-}
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -79,7 +79,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Homepage)
+export default connect(mapStateToProps,mapDispatchToProps)(Homepage);

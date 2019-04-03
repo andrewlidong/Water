@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const MainIndexItemData = ({ date, time_estimate }) => {
   return (
@@ -7,7 +7,7 @@ const MainIndexItemData = ({ date, time_estimate }) => {
       <span className="item-data-dot"></span>
       <h1 className="item-data-time">{time_estimate}</h1>
     </div>
-  )
-}
+  );
+};
 
-export default MainIndexItemData
+export default MainIndexItemData;

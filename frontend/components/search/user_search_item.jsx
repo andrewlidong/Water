@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default ({ user }) => {
 
-  const userURL = `/users/${user.id}`
+  const userURL = `/users/${user.id}`;
 
   return (
     <Link 
@@ -17,5 +17,5 @@ export default ({ user }) => {
         className="search-item-right"
         src={user.avatar} />
     </Link>
-  )
-}
+  );
+};

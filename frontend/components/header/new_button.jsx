@@ -1,12 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default ({addedClass}) => {
-  const classes = `header-button new-button ${addedClass}`
+  const classes = `header-button new-button ${addedClass}`;
   
-  let text = 'Tell a story'
+  let text = 'Share a story';
   if (addedClass === 'right') {
-    text = <img src={window.editImage} />
+    text = <img src={window.editImage} />;
   }
   
   return (
@@ -15,5 +15,5 @@ export default ({addedClass}) => {
       to='/stories/new'>
       {text}
     </Link>
-  )
-}
+  );
+};

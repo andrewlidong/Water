@@ -1,35 +1,35 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { fetchStory } from '../../actions/story_actions'
-import { followUser, unFollowUser } from '../../actions/follow_actions'
-import UserItem from './user_item'
-import StoryComments from '../comments/story_comments'
-import ClapButton from '../clap/clap_button'
-import { authorOfStory } from '../../reducers/selectors'
-import LoadingComponent from '../loading_component'
-import TagLink from '../tags/tag_link'
+import React from 'react';
+import { connect } from 'react-redux';
+import { fetchStory } from '../../actions/story_actions';
+import { authorOfStory } from '../../reducers/selectors';
+import UserItem from './user_item';
+import StoryComments from '../comments/story_comments';
+import ClapButton from '../clap/clap_button';
+import TagLink from '../tags/tag_link';
+import { followUser, unFollowUser } from '../../actions/follow_actions';
+import LoadingComponent from '../loading_component';
 
 class Show extends React.Component {
 
-  state = { loading: true }
+  state = { loading: true };
   
   componentDidMount () {
     this.props.fetchStory(this.props.match.params.id).then(
       success => this.setState({ loading: false })
-    )
-  }
+    );
+  };
 
   render () {
     if (this.state.loading) {
       return <LoadingComponent />
-    }
+    };
 
-    const story = this.props.story
-    const author = this.props.author
+    const story = this.props.story;
+    const author = this.props.author;
 
     const tagLinks = story.tags.split(', ').map((tag,i) => {
       return <TagLink key={i} tag={tag} />
-    })
+    });
 
     return (
       <div className="story">
@@ -59,28 +59,25 @@ class Show extends React.Component {
         <StoryComments 
           story={this.props.story} />
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.match.params.id
-  const story = state.entities.stories[id]
-  const author = authorOfStory(state, story)
+  const id = ownProps.match.params.id;
+  const story = state.entities.stories[id];
+  const author = authorOfStory(state, story);
 
   return {
     story,
     author
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchStory: id => dispatch(fetchStory(id))
-  }
-}
+  };
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Show)
+export default connect(mapStateToProps,mapDispatchToProps)(Show);

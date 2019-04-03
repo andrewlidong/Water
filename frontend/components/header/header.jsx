@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Nav from './nav'
-import NewButton from './new_button'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Nav from './nav';
+import NewButton from './new_button';
 
 const Header = () => {
 
@@ -15,7 +15,7 @@ const Header = () => {
 
       <Nav />
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

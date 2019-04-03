@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class ModalSignupForm extends React.Component {
   state = {
@@ -7,50 +7,50 @@ class ModalSignupForm extends React.Component {
     name: '',
     bio: '',
     avatar: null
-  }
+  };
 
   update = type => event => {
-    this.setState({ [type]: event.target.value })
-  }
+    this.setState({ [type]: event.target.value });
+  };
 
   handleSubmit = event => {
-    event.preventDefault()
-    const formData = new FormData()
-    formData.append('user[email]', this.state.email)
-    formData.append('user[password]', this.state.password)
-    formData.append('user[name]', this.state.name)
-    formData.append('user[bio]', this.state.bio)
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('user[email]', this.state.email);
+    formData.append('user[password]', this.state.password);
+    formData.append('user[name]', this.state.name);
+    formData.append('user[bio]', this.state.bio);
     if (this.state.avatar) {
-      formData.append('user[avatar]', this.state.avatar)
+      formData.append('user[avatar]', this.state.avatar);
     }
 
-    this.props.submitAction(formData)
-  }
+    this.props.submitAction(formData);
+  };
 
   handleSwitch = event => {
-    this.props.revealModalLogin()
-  }
+    this.props.revealModalLogin();
+  };
 
   handleFile = event => {
-    const file = event.currentTarget.files[0]
-    const fileReader = new FileReader()
+    const file = event.currentTarget.files[0];
+    const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({ avatar: file, avatarUrl: fileReader.result })
+      this.setState({ avatar: file, avatarUrl: fileReader.result });
     }
     if (file) {
-      fileReader.readAsDataURL(file)
+      fileReader.readAsDataURL(file);
     }
-  }
+  };
 
   render() {
-    let preview
+    let preview;
     if (this.state.avatarUrl) {
-      preview = <img className="modal-preview" src={this.state.avatarUrl} />
+      preview = <img className="modal-preview" src={this.state.avatarUrl} />;
     } else {
-      preview = null
+      preview = null;
     }
 
-    const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>)
+    const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>);
 
     return (
       <form
@@ -60,6 +60,8 @@ class ModalSignupForm extends React.Component {
         <ul className="modal-errors">
           {errors}
         </ul>
+
+        <h1 className="modal-form-header">Register</h1>
 
         <label htmlFor="email">Email</label>
         <input id="email"
@@ -97,16 +99,16 @@ class ModalSignupForm extends React.Component {
         </button>
 
         <div className="modal-form-button-switch">
-          Already have an account?
+          Have an account?
           <span
             onClick={this.handleSwitch}
-            className="guest-login">
-            Sign in.
+            className="switch-text">
+            Log In
           </span>
         </div>
       </form>
-    )
-  }
-}
+    );
+  };
+};
 
-export default ModalSignupForm
+export default ModalSignupForm;

@@ -1,10 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import MainIndexItemData from './main_index_item_data'
-import ProfileQuickLook from '../profile/profile_quick_look'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import MainIndexItemData from './main_index_item_data';
+import ProfileQuickLook from '../profile/profile_quick_look';
 
 const RecommendedStoryItem = ({ story, author }) => {
-  const storyUrl = `/stories/${story.id}`
+  const storyUrl = `/stories/${story.id}`;
 
   return (
     <div className="recommended-item">
@@ -22,7 +22,7 @@ const RecommendedStoryItem = ({ story, author }) => {
           time_estimate={story.time_estimate} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RecommendedStoryItem
+export default RecommendedStoryItem;

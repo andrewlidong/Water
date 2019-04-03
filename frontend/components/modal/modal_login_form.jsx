@@ -1,46 +1,49 @@
-import React from 'react'
+import React from 'react';
 
 class ModalLoginForm extends React.Component {
   state = {
     email: '',
     password: ''
-  }
+  };
 
   update = type => {
-    return e => {
-      this.setState({ [type]: e.target.value })
-    }
-  }
+    return event => {
+      this.setState({ [type]: event.target.value })
+    };
+  };
 
-  handleSubmit = e => {
-    e.preventDefault()
-    this.props.submitAction(this.state)
-  }
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.submitAction(this.state);
+  };
 
-  handleSwitch = e => {
-    e.preventDefault()
-    this.props.revealModalSignup()
-  }
+  handleSwitch = event => {
+    event.preventDefault();
+    this.props.revealModalSignup();
+  };
 
-  guestLogin = e => {
+  guestLogin = event => {
     this.setState({
       email: 'guest@gmail.com',
       password: 'testing'
     }, () => {
       this.props.submitAction(this.state)
-    })
-  }
+    });
+  };
 
   render () {
-    const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>)
-    const guestLogin = <a onClick={this.guestLogin} className='guest-login'>Guest Login.</a>
+    const errors = this.props.errors.map((er, i) => <li key={i}>{er}</li>);
+    const guestLogin = <a onClick={this.guestLogin} className='guest-login'>Guest Login</a>;
     return (
       <form
         className="modal-form"
         onSubmit={this.handleSubmit}>
 
         <h1 className="modal-form-header">Feel That?</h1>
-        <p className="modal-form-subheader">That's the feeling of freedom that comes from reading and sharing the stories you really care about.  Signin to view your personalized stream, follow users, bookmark stories and cheer for what you love.  Don't have an account? => {guestLogin}</p>
+        <p className="modal-form-subheader">
+        That's the feeling of freedom to read and share the stories you truly care about.  
+        <br></br><br></br>
+        Log in to view a personalized stream, follow users, favorite stories and cheer for what you love. </p>
         <ul className="modal-errors">
           {errors}
         </ul>
@@ -62,11 +65,11 @@ class ModalLoginForm extends React.Component {
         </button>
 
         <div className="modal-form-button-switch">
-          No account?
+          {guestLogin} | 
           <span
             onClick={this.handleSwitch}
-            className="guest-login">
-            Create one.
+            className="switch-text">
+            Register
           </span>
         </div>
       </form>

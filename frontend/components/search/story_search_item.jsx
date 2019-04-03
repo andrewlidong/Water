@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default ({ story }) => {
   
-  const storyURL = `/stories/${story.id}`
+  const storyURL = `/stories/${story.id}`;
 
   return (
     <Link 
@@ -14,5 +14,5 @@ export default ({ story }) => {
         <h1 className="search-item-subtitle">{story.subtitle}</h1>
       </div>
     </Link>
-  )
-}
+  );
+};

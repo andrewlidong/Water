@@ -1,15 +1,15 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { authorOfStory } from '../../reducers/selectors'
-import RecommendedStoryItem from './recommended_story_item'
+import React from 'react';
+import { connect } from 'react-redux';
+import { authorOfStory } from '../../reducers/selectors';
+import RecommendedStoryItem from './recommended_story_item';
 
 const RecommendedStory = ({story, author}) => {
-  let content
+  let content;
 
   if (story) {
-    content = <RecommendedStoryItem story={story} author={author} />
+    content = <RecommendedStoryItem story={story} author={author} />;
   } else {
-    content = <p className="recommend-story-warning">Water will generate a recommendation based on your likes.</p>
+    content = <p className="recommend-story-warning">ThisIsWater will generate a recommendation based on your likes.</p>;
   }
 
   return (
@@ -17,7 +17,7 @@ const RecommendedStory = ({story, author}) => {
       <h1 className="main-index-title">Recommended Read</h1>
       {content}
     </div>
-  )
+  );
 
 }
 
@@ -25,9 +25,7 @@ const mapStateToProps = (state, ownProps) => {
   const author = authorOfStory(state, ownProps.story)
   return {
     author
-  }
-}
+  };
+};
 
-export default connect(
-  mapStateToProps
-)(RecommendedStory)
+export default connect(mapStateToProps)(RecommendedStory);

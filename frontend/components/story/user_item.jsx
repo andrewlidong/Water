@@ -1,11 +1,11 @@
-import React from 'react'
-import MainIndexItemData from '../main/main_index_item_data'
-import { Link } from 'react-router-dom'
-import FollowButton from '../profile/follow_button'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import MainIndexItemData from '../main/main_index_item_data';
+import FollowButton from '../profile/follow_button';
 
 const UserItem = ({ user, story }) => {
 
-  const userUrl = `/users/${user.id}`
+  const userUrl = `/users/${user.id}`;
   
   return (
     <div className="user-item">
@@ -28,7 +28,7 @@ const UserItem = ({ user, story }) => {
           time_estimate={story.time_estimate} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserItem
+export default UserItem;

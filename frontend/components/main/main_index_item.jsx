@@ -1,20 +1,21 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import MainIndexItemData from './main_index_item_data'
-import ProfileQuickLook from '../profile/profile_quick_look'
-import BookmarkButton from '../bookmark/bookmark_button'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import MainIndexItemData from './main_index_item_data';
+import ProfileQuickLook from '../profile/profile_quick_look';
+import BookmarkButton from '../bookmark/bookmark_button';
 
 const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
-  if (!story) return <div></div>
+  if (!story) return <div></div>;
 
-  const storyUrl = `/stories/${story.id}`
-  const authorUrl = `/users/${author.id}`
-  const editUrl = `/stories/${story.id}/edit`
+  const storyUrl = `/stories/${story.id}`;
+  const authorUrl = `/users/${author.id}`;
+  const editUrl = `/stories/${story.id}/edit`;
   
-  let button
+  let button;
+
   if (editButton && author.id === currentUserId) {
-    button = <Link to={editUrl} className="main-index-edit-link">Edit</Link>
+    button = <Link to={editUrl} className="main-index-edit-link">Edit</Link>;
   }
 
   return (
@@ -44,18 +45,17 @@ const MainIndexItem = ({ story, author, editButton, currentUserId }) => {
         <img src={story.image_url} />
       </Link>
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state, ownProps) => {
-  const author = state.entities.users[ownProps.story.author_id]
-  const currentUserId = state.session.id
+  const author = state.entities.users[ownProps.story.author_id];
+  const currentUserId = state.session.id;
+
   return {
     author,
     currentUserId
-  }
-}
+  };
+};
 
-export default connect(
-  mapStateToProps
-)(MainIndexItem)
+export default connect(mapStateToProps)(MainIndexItem);

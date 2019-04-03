@@ -1,79 +1,79 @@
-import React from 'react'
-import { withRouter } from 'react-router-dom'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class StoryForm extends React.Component {
 
-  state = Object.assign({}, this.props.story, { errors: [] })
+  state = Object.assign({}, this.props.story, { errors: [] });
 
   update = name => event => {
-    this.setState({ [name]: event.target.value })
-  }
+    this.setState({ [name]: event.target.value });
+  };
 
   componentWillReceiveProps(newProps) {
-    this.setState(newProps.story)
-  }
+    this.setState(newProps.story);
+  };
 
   inputsEmpty = () => {
-    return Object.values(this.state).includes('')
-  }
+    return Object.values(this.state).includes('');
+  };
 
   handleSubmit = event => {
     if (this.inputsEmpty()) {
-      this.setState({ errors: ["Please fill in all fields"] })
-      return
-    }
+      this.setState({ errors: ["Some fields are still empty..."] });
+      return;
+    };
 
-    event.preventDefault()
-    let redirectUrl = '/'
+    event.preventDefault();
+    let redirectUrl = '/';
 
-    const formData = new FormData()
-    formData.append('story[title]', this.state.title)
-    formData.append('story[subtitle]', this.state.subtitle)
-    formData.append('story[body]', this.state.body)
-    formData.append('story[all_tags]', this.state.tags)
+    const formData = new FormData();
+    formData.append('story[title]', this.state.title);
+    formData.append('story[subtitle]', this.state.subtitle);
+    formData.append('story[body]', this.state.body);
+    formData.append('story[all_tags]', this.state.tags);
 
     if (this.state.image) {
-      formData.append('story[image]', this.state.image)
+      formData.append('story[image]', this.state.image);
     }
 
     if (this.state.id) {
-      formData.append('story[id]', this.state.id)
-      redirectUrl = `/stories/${this.state.id}`
+      formData.append('story[id]', this.state.id);
+      redirectUrl = `/stories/${this.state.id}`;
     }
 
-    const copyState = this.state
+    const copyState = this.state;
 
     this.props.submitAction(formData).then(
       success => this.props.history.push(redirectUrl),
       failure => this.setState(copyState)
-    )
-  }
+    );
+  };
 
   handleFile = event => {
-    const file = event.currentTarget.files[0]
-    const fileReader = new FileReader()
+    const file = event.currentTarget.files[0];
+    const fileReader = new FileReader();
 
     fileReader.onloadend = () => {
-      this.setState({ image: file, imageUrl: fileReader.result })
-    }
+      this.setState({ image: file, imageUrl: fileReader.result });
+    };
 
     if (file) {
-      fileReader.readAsDataURL(file)
+      fileReader.readAsDataURL(file);
     }
-  }
+  };
 
   render() {
-    const errors = this.props.errors
-      .concat(this.state.errors)
-      .map((er, i) => <li key={i}>{er}</li>)
+    const errors = this.props.errors.concat(this.state.errors).map((er, i) => <li key={i}>{er}</li>);
 
-    let preview
+    let preview;
+
     if (this.state.imageUrl) {
-      preview = <img className="story-preview" src={this.state.imageUrl} />
+      preview = <img className="story-preview" src={this.state.imageUrl} />;
     } else {
-      preview = null
+      preview = null;
     }
-    const currentUser = this.props.currentUser
+
+    const currentUser = this.props.currentUser;
 
     return (
       <div className="story-form-container">
@@ -108,7 +108,7 @@ class StoryForm extends React.Component {
           <textarea
             className="story-form-textarea"
             onChange={this.update('body')}
-            placeholder="Tell your story..."
+            placeholder="There are these two young fish swimming along and they happen to meet an older fish swimming the other way..."
             value={this.state.body}
             autoFocus >
           </textarea>
@@ -118,9 +118,9 @@ class StoryForm extends React.Component {
             type='text'
             onChange={this.update('tags')}
             value={this.state.tags}
-            placeholder="Comma seperated tags, such as 'sports, museums'" />
+            placeholder="Separate tags with commas, like 'tag1, tag2, tag3'" />
 
-          <p className="story-form-label">Select a cover image:</p>
+          <p className="story-form-label">Attach story photo:</p>
           <input
             type="file"
             onChange={this.handleFile.bind(this)} />
@@ -132,8 +132,8 @@ class StoryForm extends React.Component {
           </button>
         </form>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
-export default withRouter(StoryForm)
+export default withRouter(StoryForm);

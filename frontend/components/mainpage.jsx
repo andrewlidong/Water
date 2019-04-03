@@ -1,14 +1,14 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx'
-import CreateStoryContainer from './story/create_story_container'
-import EditStoryContainer from './story/edit_story_container'
-import Homepage from './homepage'
-import Show from './story/show'
-import ProfileShow from './profile/profile_show'
-import Search from './search/search'
-import TagShow from './tags/tag_show'
-import BookmarkShow from './bookmark/bookmark_show'
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
+import CreateStoryContainer from './story/create_story_container';
+import EditStoryContainer from './story/edit_story_container';
+import Homepage from './homepage';
+import Show from './story/show';
+import ProfileShow from './profile/profile_show';
+import Search from './search/search';
+import TagShow from './tags/tag_show';
+import BookmarkShow from './bookmark/bookmark_show';
 
 const MainPage = () => {
   return (
@@ -24,7 +24,7 @@ const MainPage = () => {
         <Route path='/' component={Homepage} />
       </Switch>
     </div>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;

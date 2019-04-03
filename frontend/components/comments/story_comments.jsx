@@ -1,8 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import CommentForm from './comment_form'
-import CommentIndex from './comment_index'
-import { commentsForStory } from '../../reducers/selectors'
+import React from 'react';
+import { connect } from 'react-redux';
+import CommentForm from './comment_form';
+import CommentIndex from './comment_index';
+import { commentsForStory } from '../../reducers/selectors';
 
 const StoryComments = ({ comments, story }) => {
 
@@ -18,14 +18,12 @@ const StoryComments = ({ comments, story }) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const story = ownProps.story
-  const comments = commentsForStory(state, story)
+  const story = ownProps.story;
+  const comments = commentsForStory(state, story);
 
   return {
     comments
-  }
-}
+  };
+};
 
-export default connect (
-  mapStateToProps
-)(StoryComments)
+export default connect (mapStateToProps)(StoryComments);

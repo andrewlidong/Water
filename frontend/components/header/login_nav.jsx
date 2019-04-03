@@ -1,17 +1,17 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { revealModalLogin, revealModalSignup } from '../../actions/modal_actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { revealModalLogin, revealModalSignup } from '../../actions/modal_actions';
 
 class LoginNav extends React.Component {
   handleLogin = event => {
-    event.preventDefault()
-    this.props.revealModalLogin()
-  }
+    event.preventDefault();
+    this.props.revealModalLogin();
+  };
 
   handleSignup = event => {
-    event.preventDefault()
-    this.props.revealModalSignup()
-  }
+    event.preventDefault();
+    this.props.revealModalSignup();
+  };
 
   render () {
     return (
@@ -28,17 +28,15 @@ class LoginNav extends React.Component {
           Register
         </button>
       </nav>
-    )
-  }
-}
+    );
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     revealModalLogin: () => dispatch(revealModalLogin()),
     revealModalSignup: () => dispatch(revealModalSignup())
-  }
-}
+  };
+};
 
-export default connect(
-  null, mapDispatchToProps
-)(LoginNav)
+export default connect(null, mapDispatchToProps)(LoginNav);

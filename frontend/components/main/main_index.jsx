@@ -1,11 +1,11 @@
-import React from 'react'
-import MainIndexItem from './main_index_item'
+import React from 'react';
+import MainIndexItem from './main_index_item';
 
 const MainIndex = ({ title, stories, editButton, additionalClasses }) => {
   
   const mappedStories = stories.map((story, i) => {
     return <MainIndexItem key={i} story={story} editButton={editButton} />
-  })
+  });
 
   return (
     <div className={"main-index " + additionalClasses}>
@@ -13,7 +13,7 @@ const MainIndex = ({ title, stories, editButton, additionalClasses }) => {
 
       {mappedStories}
     </div>
-  )
-}
+  );
+};
 
-export default MainIndex
+export default MainIndex;

@@ -1,11 +1,11 @@
-import React from 'react'
-import TagLink from './tag_link'
+import React from 'react';
+import TagLink from './tag_link';
 
 const TagLinkContainer = ({tags, containerClasses}) => {
   
   const tagLinks = tags.map((tag, i) => {
     return <TagLink key={i} tag={tag} />
-  })
+  });
 
   return (
     <div className={containerClasses}>
@@ -14,7 +14,7 @@ const TagLinkContainer = ({tags, containerClasses}) => {
         {tagLinks}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TagLinkContainer
+export default TagLinkContainer;

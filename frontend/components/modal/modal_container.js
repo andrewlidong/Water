@@ -1,14 +1,14 @@
-import Modal from './modal'
-import { connect } from 'react-redux'
-import { login, signup } from '../../actions/session_actions'
-import { hideModal, revealModalSignup, revealModalLogin } from '../../actions/modal_actions'
+import Modal from './modal';
+import { connect } from 'react-redux';
+import { login, signup } from '../../actions/session_actions';
+import { hideModal, revealModalSignup, revealModalLogin } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
   return {
     reveal: state.modal.reveal,
     errors: state.errors.session
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -17,10 +17,7 @@ const mapDispatchToProps = dispatch => {
     hide: () => dispatch(hideModal()),
     revealModalSignup: () => dispatch(revealModalSignup()),
     revealModalLogin: () => dispatch(revealModalLogin())
-  }
-}
+  };
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Modal)
+export default connect(mapStateToProps,mapDispatchToProps)(Modal);
