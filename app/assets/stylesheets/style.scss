@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand|Permanent+Marker');
 @import "mixins";
 @import "reset";
-@import "vars";
+@import "variables";
 @import "components/*";
 
 body {
@@ -27,4 +27,3 @@ body {
 .mainpage {
   margin-bottom: 150px;
 }
-

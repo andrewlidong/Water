@@ -81,7 +81,7 @@ class StoryForm extends React.Component {
           <img className="header-image" src={currentUser.avatar} />
           <div className="story-form-author-detail">
             <p className="story-form-author-name">{currentUser.name}</p>
-            <p className="story-form-author-draft">Draft</p>
+            <p className="story-form-author-draft">Rough Draft</p>
           </div>
         </div>
 

@@ -9,7 +9,7 @@
   width: 100%;
   height: 100%;
 
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.6);
 }
 
 .modal-content {
@@ -30,7 +30,7 @@
 
     margin-top: 0;
 
-    background-image: url("https://www.freeiconspng.com/uploads/water-png-29.png");
+    background-image: url("modalImage.png");
     background-position: 20px 100%;
     background-size: auto 400px;
     background-repeat: no-repeat;
@@ -64,10 +64,16 @@
 
   font-size: 20px;
 
+  cursor: pointer;
+
   background-color: white;
 
   @include min($tablet) {
     top: 10px;
+  }
+
+  &:active {
+    transform: scale(0.8);
   }
 }
 
@@ -81,14 +87,20 @@
   font-weight: 300;
   line-height: 37px;
   color: rgba(255,255,255,.97);
+  cursor: pointer;
 
-  background: rgba(0,0,0,.84);
-  border-color: rgba(0,0,0,.84);
+  background: $borderBlue;
+  border-color: $borderBlue;
   border-radius: 4px;
+
+  &:active {
+    background-color: $green;
+    transform: scale(1.2);
+  }
 }
 
 .modal-form-header {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 
   font-size: 32px;
   font-weight: bold;
@@ -96,9 +108,9 @@
 }
 
 .modal-form-subheader {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 
-  font-size: 19px;
+  font-size: 16px;
   text-align: center;
 }
 
@@ -122,22 +134,25 @@
 
 .modal-form label {
   font-weight: 400;
-  color: $subtitleGrey;
+  color: $subtitleGray;
 }
 
 .modal-errors {
-  margin: 0 auto 20px auto;
+  position: absolute;
+  margin-top: 20%;
+  margin-left: 40%;
   color: lightcoral;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .modal-preview {
+  position: absolute;
   width: 150px;
   height: auto;
   max-height: 120px;
 
-  margin-bottom: 40px;
-  margin-right: 20px;
+  margin-top: 20%;
+  margin-right: 60%;
   align-self: flex-end;
 }
 
@@ -146,15 +161,25 @@
 }
 
 .guest-login {
-  color: blue;
+  color: $blue;
   font-size: 16px;
   cursor: pointer;
+
+  &:active {
+    color: $green;
+    transform: scale(1.2);
+  }
 }
 
 .switch-text {
-  color: blue;
+  color: $blue;
   font-size: 16px;
   cursor: pointer;
+
+  &:active {
+    color: $green;
+    transform: scale(1.2);
+  }
 }
 
 .modal-form-button-switch {

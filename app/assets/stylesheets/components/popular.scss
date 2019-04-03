@@ -55,16 +55,20 @@
   @include min($desktop) {
     margin-left: 15px;
   }
+
+  &:active {
+    color: $green;
+  }
 }
 
 .popular-index-item-num {
   font-size: 26px;
   font-weight: bold;
-  color: rgba(0,0,0,.2);
+  color: $blue;
 }
 
 .popular-story-author {
-  margin-top: 6px;
+  margin-top: 3px;
   font-size: 16px;
   font-weight: 400;
 

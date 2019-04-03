@@ -29,13 +29,14 @@
 
   padding: 20px;
 
-  background-color: white;
-  border: 1px solid $titleGrey;
+  background-color: whitesmoke;
+  border: 1px solid $borderBlue;
   border-radius: 5px;
 }
 
 .underline {
   text-decoration: underline;
+  color: $green;
 }
 
 .quick-look-arrow {
@@ -46,8 +47,8 @@
   margin-left: 20px;
   margin-top: 30px;
 
-  border-right: 1px solid $titleGrey;
-  border-top: 1px solid $titleGrey;
+  border-right: 1px solid $borderBlue;
+  border-top: 1px solid $borderBlue;
   
   background-color: white;
   
@@ -61,7 +62,7 @@
   width: 100%;
 
   padding-bottom: 20px;
-  border-bottom: 1px solid $titleGrey;
+  border-bottom: 1px solid $borderBlue;
 }
 
 .quick-look-name {
@@ -81,22 +82,22 @@
 
 .quick-look-bio {
   font-size: 14px;
-  color: $subtitleGrey;
+  color: $subtitleGray;
 }
 
 .quick-look-avatar {
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
   border-radius: 100%;
 }
 
 .quick-look-recent-stories {
   margin-top: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid $titleGrey;
+  border-bottom: 1px solid $borderBlue;
 
   span {
-    color: $subtitleGrey; 
+    color: $subtitleGray; 
   }
 
   div {
@@ -107,7 +108,7 @@
 
 .quick-look-recent {
   font-size: 15px;
-  color: $subtitleGrey;
+  color: $subtitleGray;
 
   margin: 6px 0;
 }

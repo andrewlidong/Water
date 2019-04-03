@@ -2,13 +2,13 @@
 
   input {
     display: block;
-    margin: 100px auto;
+    margin: 30% auto;
     padding: 0 20px;
     
-    font-size: 30px;
+    font-size: 80px;
 
     @include min($tablet) {
-      font-size: 40px;
+      font-size: 80px;
     }
   }
 }

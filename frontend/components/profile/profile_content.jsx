@@ -13,7 +13,7 @@ const ProfileContent = ({ user, currentMatch }) => {
     <div className="profile-content">
       <div className="profile-content-left">
         <h1 className="profile-content-name">{user.name}</h1>
-        <h2 className="profile-content-userSince">Proud member since {user.userSince}</h2>
+        <h2 className="profile-content-userSince">Happy member since {user.userSince}</h2>
         <div className="flex">
           <h1 className="profile-content-follow-info">{user.numFollowedUsers} Follows</h1>
           <h1 className="profile-content-follow-info">{user.numFollowers} Followers</h1>

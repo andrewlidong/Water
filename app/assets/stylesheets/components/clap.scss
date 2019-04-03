@@ -5,10 +5,10 @@
 }
 
 .clap-button {
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
 
-  border: 1px solid $blue;
+  border: 1px solid $borderBlue;
   border-radius: 100%;
 
   background-color: none;
@@ -19,14 +19,14 @@
   outline: none;
 
   cursor: pointer;
-  transition-duration: 0.15s;
+  transition-duration: 0.2s;
   
   &:hover {
     opacity: 1;
   }
 
   &:active {
-    transform: scale(1.15);
+    transform: scale(1.5);
   }
 } 
 
@@ -62,5 +62,5 @@
 }
 
 .clap-total {
-  color: $blue;
+  color: $borderBlue;
 } 

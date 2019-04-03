@@ -23,7 +23,7 @@
 
 .story-form-author-draft {
   font-size: 14px;
-  color: $subtitleGrey;
+  color: $subtitleGray;
 }
 
 .story-form {
@@ -36,6 +36,41 @@
 
     outline: none;
   }
+}
+
+.story-form-title {
+  font-size: 30px;
+
+  &::placeholder {
+    font-weight: bold;
+    color: rgba(0,0,0,0.4);
+  }
+
+  background-color: $yellow;
+  border-radius: 4px;
+}
+
+.story-form-tags {
+  font-size: 16px;
+
+  &::placeholder {
+    font-weight: bold;
+    color: rgba(0,0,0,0.4);
+  }
+
+  background-color: $yellow;
+  border-radius: 4px;
+}
+
+.story-form-subtitle {
+  font-size: 22px;
+
+  &::placeholder {
+    color: rgba(0,0,0,0.4);
+  }
+
+  background-color: $yellow;
+  border-radius: 4px;
 }
 
 .story-form-textarea {
@@ -51,23 +86,9 @@
   &::placeholder {
     color: rgba(0,0,0,.34);
   }
-}
 
-.story-form-title {
-  font-size: 30px;
-
-  &::placeholder {
-    font-weight: bold;
-    color: rgba(0,0,0,0.4);
-  }
-}
-
-.story-form-subtitle {
-  font-size: 22px;
-
-  &::placeholder {
-    color: rgba(0,0,0,0.4);
-  }
+  background-color: $yellow;
+  border-radius: 4px;
 }
 
 .story-form-button {

@@ -33,7 +33,7 @@
   margin-top: 10px;
   margin-bottom: 35px;
   
-  border-bottom: 1px solid $titleGrey;
+  border-bottom: 1px solid $borderBlue;
   
   font-family: $header;
   font-size: 20px;
@@ -60,6 +60,10 @@
 
   text-overflow: ellipsis;
   overflow: hidden;
+
+  &:active {
+    color: $green;
+  }
 }
 
 .item-story-subtitle {
@@ -70,7 +74,11 @@
   font-weight: 400px;
   font-size: 18px;
   text-overflow: ellipsis;
-  color: $subtitleGrey;
+  color: $subtitleGray;
+
+  &:active {
+    color: $green;
+  }
 }
 
 .item-story-author {
@@ -85,7 +93,7 @@
 
 .item-data {
   display: flex;
-  color: $subtitleGrey;
+  color: $subtitleGray;
   font-size: 15px;
 }
 
@@ -109,7 +117,9 @@
       max-height: 130px;
     }
   }
-
+  &:active {
+    transform: scale(0.8);
+  }
 }
 
 .main-index-item-content {
@@ -149,6 +159,7 @@
   height: 22px;
 
   padding: 0;
+  background-color: inherit;
 
   border: none;
 
@@ -157,5 +168,9 @@
 
   img {
     width: 100%;
+  }
+
+  &:active {
+    transform: scale(1.5);
   }
 }

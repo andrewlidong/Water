@@ -18,8 +18,8 @@
 }
 
 .user-item-image {
-  height: 60px;
-  width: 60px;
+  height: 70px;
+  width: 70px;
 
   margin-right: 15px;
 
@@ -47,9 +47,15 @@
   }
 }
 
+.story-form-author-name {
+  &:active {
+    color: $green;
+  }
+}
+
 .user-item-details-bio {
   font-weight: 300;
-  color: $subtitleGrey;
+  color: $subtitleGray;
 
   margin: 3px 0;
 } 
@@ -71,13 +77,12 @@
   margin-bottom: 20px;
 
   background-color: lightgrey;
-
 }
 
 .story-subtitle {
   font-weight: 400;
   font-size: 24px;
-  color: $subtitleGrey;
+  color: $subtitleGray;
 
   margin-bottom: 30px;
   margin-top: 10px;

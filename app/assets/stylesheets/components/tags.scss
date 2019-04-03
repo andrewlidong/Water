@@ -35,8 +35,14 @@
   font-family: $header;
   font-size: 12px;
   letter-spacing: 1px;
-  color: rgba(0, 0, 0, 0.84);
+  color: $borderBlue;
+  background-color: white;
 
-  border: 1px solid $titleGrey;
+  border: 1px solid $borderBlue;
   border-radius: 50%;
+  
+  &:active {
+    color: $green;
+    transform: scale(1.2);
+  }
 } 

@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
 
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   margin-top: 10px;
 }
 
@@ -14,6 +14,11 @@
 
   @include min($tablet) {
     margin-left: 40px;
+  }
+
+  &:active {
+    color: $green;
+    transform: scale(1.2);
   }
 }
 
@@ -33,12 +38,22 @@
 .signup {
   border-color: $blue;
   border-radius: 4px;
-  padding: 8px 10px;
+  padding: 6px 10px;
+
+  &:active {
+    color: $green;
+    transform: scale(1.2);
+  }
 }
 
 .login, .logout {
   border: none;
   background-color: inherit;
+
+  &:active {
+    color: $green;
+    transform: scale(1.2);
+  }
 }
 
 .logout {
@@ -47,10 +62,15 @@
   @include min($tablet) {
     display: block;
   }
+
+  &:active {
+    color: $green;
+    transform: scale(1.2);
+  }
 }
 
 .new-button {
-  font-size: 16px;
+  font-size: 18px;
 
   &.right {
     height: 25px;
@@ -73,6 +93,11 @@
       display: block;
     }
   }
+
+  &:active {
+    color: $green;
+    transform: scale(1.2);
+  }
 }
 
 .header-image {
@@ -92,4 +117,8 @@
   margin-right: 20px;
 
   opacity: 0.4;
+
+  &:active {
+    transform: scale(1.2);
+  }
 }
