@@ -25,7 +25,7 @@ class ModalLoginForm extends React.Component {
   guestLogin = event => {
     this.setState({
       email: 'guest@gmail.com',
-      password: 'testing'
+      password: 'password'
     }, () => {
       this.props.submitAction(this.state)
     });

@@ -2,18 +2,18 @@
 @import "mixins";
 @import "reset";
 @import "vars";
+@import "components/*";
 
 body {
   font-family: $main;
   padding: 10px 20px;
   margin: 0 auto;
 
-  background-color: #f4f7fc;
+  background-color: #c1d8ff;
 
   @include min($tablet) {
     width: 85%;
   }
-
   
   @include min($desktop) {
     width: 80%;
@@ -25,7 +25,6 @@ body {
 }
 
 .mainpage {
-  margin-bottom: 300px;
+  margin-bottom: 150px;
 }
 
-@import "components/*";
