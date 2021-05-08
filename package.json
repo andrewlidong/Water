@@ -35,7 +35,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.21",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
